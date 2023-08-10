@@ -1,3 +1,4 @@
+// products.js
 document.addEventListener("DOMContentLoaded", function () {
     const url = "https://japceibal.github.io/emercado-api/cats_products/101.json";
     const productList = document.querySelector("#product-list");
