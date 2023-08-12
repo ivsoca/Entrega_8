@@ -18,11 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
           productItem.classList.add("product-item");
   
           productItem.innerHTML = 
-           `<h2>${product.name}</h2>
+           `<img src="${product.image}" alt="${product.name}">
+            <h2>${product.name}</h2>
             <p>${product.description}</p>
             <p>Precio: ${product.cost} ${product.currency}</p>
-            <p>Vendidos: ${product.soldCount}</p>
-            <img src="${product.image}" alt="${product.name}">`
+            <p>Vendidos: ${product.soldCount}</p>`
           ;
   
           productList.appendChild(productItem);
