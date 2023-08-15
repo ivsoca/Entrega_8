@@ -215,3 +215,7 @@ a.custom-card:hover {
 main {
   margin-top: 50px;
 }
+
+.navbar ul li {
+  cursor:pointer;
+}
