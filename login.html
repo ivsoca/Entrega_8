@@ -30,10 +30,10 @@
         <div class="formulario_login">
           <h1>Sign in</h1>
           <div class="form-container">
-            <form class=formulario action method="post">
-              <input class="form-input" type="email" name="correo" required
+            <div class=formulario>
+              <input class="form-input" type="email" name="correo" required id="mailuser"
                 placeholder="Email address">
-              <input class="form-input" type="password" name="password"
+              <input class="form-input" type="password" name="password" id="passworduser"
                 required
                 placeholder="Password">
               <div class="form-check">
@@ -41,8 +41,8 @@
                   id="recordarme">
                 <label class="form-check-label" for="recordarme">Recordarme</label>
               </div>
-              <button type="submit">Login</button>
-            </form>
+              <button id="loginbutton">Login</button>
+            </div>
           </div>
         </div>
       </div>
