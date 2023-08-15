@@ -1,3 +1,19 @@
+:root {
+  --bg-color: #e3e0ff;
+  --bg-color-2: #8D88DC;
+
+  --pink-1: #FFD6FF;
+  --pink-2: #FFC8FF;
+  --light-purple-1: #E7C6FF;
+  --light-purple-2: #E2B9FF;
+  --purple-1: #C8B6FF;
+  --purple-2: #BEAAFF;
+  --blue-1: #B8C0FF;
+  --blue-2: #AAB4FF;
+  --light-blue-1: #BBD0FF;
+  --light-blue-2: #AFC9FF;
+}
+
 .jumbotron,
 .card-body,
 .container,
