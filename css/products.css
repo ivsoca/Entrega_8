@@ -35,6 +35,7 @@ body {
     border-style: outset;
     margin: 14px;
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .product-item:hover {
