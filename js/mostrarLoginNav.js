@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    let navbar = document.getElementById("navbarNav")
+    let navbar = document.getElementById("navlist")
     let logoutNav = document.createElement("li")
     let loginNav = document.createElement("li")
 
@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", function() {
     logoutNav.addEventListener("click", function() {
 
         localStorage.removeItem("email")
-        console.log("xd")
-        window.location.href = "index.html"
+        //esto hay que cambiarlo
+        location.reload();
 
     })
 
