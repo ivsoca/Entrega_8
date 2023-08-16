@@ -7,48 +7,56 @@ const CART_INFO_URL = "https://japceibal.github.io/emercado-api/user_cart/";
 const CART_BUY_URL = "https://japceibal.github.io/emercado-api/cart/buy.json";
 const EXT_TYPE = ".json";
 
-let showSpinner = function(){
+let showSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "block";
-}
+};
 
-let hideSpinner = function(){
+let hideSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "none";
-}
+};
 
-let getJSONData = function(url){
-    let result = {};
-    showSpinner();
-    return fetch(url)
-    .then(response => {
+let getJSONData = function (url) {
+  let result = {};
+  showSpinner();
+  return fetch(url)
+    .then((response) => {
       if (response.ok) {
         return response.json();
-      }else{
+      } else {
         throw Error(response.statusText);
       }
     })
-    .then(function(response) {
-          result.status = 'ok';
-          result.data = response;
-          hideSpinner();
-          return result;
+    .then(function (response) {
+      result.status = "ok";
+      result.data = response;
+      hideSpinner();
+      return result;
     })
-    .catch(function(error) {
-        result.status = 'error';
-        result.data = error;
-        hideSpinner();
-        return result;
+    .catch(function (error) {
+      result.status = "error";
+      result.data = error;
+      hideSpinner();
+      return result;
     });
-}
+};
 
 // Login code
-
 document.addEventListener("DOMContentLoaded", function () {
-  var contenido = document.getElementById("contenido");
-  var loginPopup = document.getElementById("loginPopup");
-  var loginButton = document.getElementById("loginButton");
-  var usuarioLogueado = false;
+  let contenido = document.getElementById("contenido");
+  let loginPopup = document.getElementById("loginPopup");
+  let loginButton = document.getElementById("loginButton");
+  let usuarioLogueado = false;
 
+  //Cambiar usuarioLogueado segun estado de login
+  if (localStorage.getItem("email") != null) {
+    usuarioLogueado = true;
+  } else {
+    usuarioLogueado = false;
+  }
+
+  //Mostrar pop up si no está logueado
   if (usuarioLogueado) {
+    loginPopup.style.display = "none";
     contenido.style.pointerEvents = "all";
   } else {
     loginPopup.style.display = "flex";
