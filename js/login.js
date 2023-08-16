@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  // Cuando se apreta el botón de log in, si está chekeado el recordarme, guarda el valor del mail;
+  // Cuando se apreta el botón de log in, si está chekeado el recordarme, guarda el valor del mail y pass
   logInButton.addEventListener('click', function() {
     if (recordarmeCheck.checked) {
       localStorage.setItem('mailRecordado', mailInputElement.value);
