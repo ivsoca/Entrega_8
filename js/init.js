@@ -39,3 +39,22 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+// Login code
+
+document.addEventListener("DOMContentLoaded", function () {
+  var contenido = document.getElementById("contenido");
+  var loginPopup = document.getElementById("loginPopup");
+  var loginButton = document.getElementById("loginButton");
+  var usuarioLogueado = false;
+
+  if (usuarioLogueado) {
+    contenido.style.pointerEvents = "all";
+  } else {
+    loginPopup.style.display = "flex";
+    contenido.style.pointerEvents = "none";
+  }
+  loginButton.addEventListener("click", function () {
+    loginPopup.style.display = window.location.href = "login.html";
+  });
+});
