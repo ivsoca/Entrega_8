@@ -33,20 +33,26 @@ document.addEventListener("DOMContentLoaded", function () {
   //* Recordar al usuario cuando se checkea "Recuerdame"
   const recordarmeCheck = document.getElementById("recordarme");
   const mailInputElement = document.getElementById("mailuser");
+  const passwordInputElement = document.getElementById("passworduser");
   const logInButton = document.getElementById("loginbutton");
-  let contenidoRecordado = localStorage.getItem('contenidoRecordado');
+  let mailRecordado = localStorage.getItem('mailRecordado');
+  let passwordRecordada = localStorage.getItem('mailRecordado');
 
   // Si contenido recordado es truthy (!= null)
-  if (contenidoRecordado) {
-    // Guardar el valor en la var
-    mailInputElement.value = contenidoRecordado;
+  if (mailRecordado) {
+    // Guardar el mail en la variable
+    mailInputElement.value = mailRecordado;
   }
+  if (passwordRecordada) {
+    passwordInputElement.value = passwordRecordada
+  }
+
 
   // Cuando se apreta el botón de log in, si está chekeado el recordarme, guarda el valor del mail;
   logInButton.addEventListener('click', function() {
     if (recordarmeCheck.checked) {
-      localStorage.setItem('contenidoRecordado', mailInputElement.value);
+      localStorage.setItem('mailRecordado', mailInputElement.value);
+      localStorage.setItem('passwordRecordada', passwordInputElement.value);
     }
   });
 });
-
