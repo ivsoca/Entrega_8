@@ -1,45 +1,52 @@
 document.addEventListener("DOMContentLoaded", function () {
-  let login = document.getElementById("loginbutton");
-  
-  // función que guarda al localstorage tu mail
-  login.addEventListener("click", function () {
-    let email = document.getElementById("mailuser").value;
-    let password = document.getElementById("passworduser").value;
-    let emailHasAt = email.includes("@");
-    let emailHasDot = email.includes(".");
-    let passwordIsLong = password.length > 6;
+  const login = document.getElementById("loginbutton");
 
-    if (email && password && emailHasAt && emailHasDot && password.length >= 6) {
-      localStorage.setItem("email", email);
+  login.addEventListener("click", function () {
+    const emailElement = document.getElementById("mailuser");
+    const passwordElement = document.getElementById("passworduser");
+    const emailHasAt = emailElement.value.includes("@");
+    const emailHasDot = emailElement.value.includes(".");
+    const passwordIsShort = passwordElement.value.length < 6;
+
+    //* Guardar e-mail al localStorage si está todo correcto
+    if (emailElement.value && passwordElement.value && emailHasAt && emailHasDot && !passwordIsShort) {
+      localStorage.setItem("email", emailElement);
       window.location.href = "index.html";
     } else {
-
-      switch (false) {
-        case emailHasAt:
+      // Dar errores especificos
+      switch (true) {
+        case !emailHasAt:
           alert("El e-mail ingresado debe contener un arroba (@)");
           break;
-        case emailHasDot:
+        case !emailHasDot:
           alert("El e-mail ingresado debe contener un punto (.)");
           break;
-        case passwordIsLong:
-          alert("La contraseña debe tener más de seis caracteres");
+        case passwordIsShort:
+          alert("La contraseña debe contener al menos seis caracteres");
           break;
         default:
           break;       
       }
     }
   });
-});
 
-window.onload = function() {
+  //* Recordar al usuario cuando se checkea "Recuerdame"
+  const recordarmeCheck = document.getElementById("recordarme");
+  const mailInputElement = document.getElementById("mailuser");
+  const logInButton = document.getElementById("loginbutton");
   let contenidoRecordado = localStorage.getItem('contenidoRecordado');
+
+  // Si contenido recordado es truthy (!= null)
   if (contenidoRecordado) {
-    document.getElementById('mailuser').value = contenidoRecordado;
+    // Guardar el valor en la var
+    mailInputElement.value = contenidoRecordado;
   }
-};
 
-document.getElementById('recordarme').addEventListener('click', function() {
-  var contenidoInput = document.getElementById('mailuser').value;
-
-  localStorage.setItem('contenidoRecordado', contenidoInput);
+  // Cuando se apreta el botón de log in, si está chekeado el recordarme, guarda el valor del mail;
+  logInButton.addEventListener('click', function() {
+    if (recordarmeCheck.checked) {
+      localStorage.setItem('contenidoRecordado', mailInputElement.value);
+    }
+  });
 });
+
