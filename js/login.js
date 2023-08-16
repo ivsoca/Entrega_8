@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const login = document.getElementById("loginbutton");
+  const logInButton = document.getElementById("loginbutton");
 
-  login.addEventListener("click", function () {
+  logInButton.addEventListener("click", function () {
     const emailElement = document.getElementById("mailuser");
     const passwordElement = document.getElementById("passworduser");
     const emailHasAt = emailElement.value.includes("@");
@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const recordarmeCheck = document.getElementById("recordarme");
   const mailInputElement = document.getElementById("mailuser");
   const passwordInputElement = document.getElementById("passworduser");
-  const logInButton = document.getElementById("loginbutton");
   let mailRecordado = localStorage.getItem('mailRecordado');
   let passwordRecordada = localStorage.getItem('mailRecordado');
 
@@ -46,7 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (passwordRecordada) {
     passwordInputElement.value = passwordRecordada
   }
-
 
   // Cuando se apreta el botón de log in, si está chekeado el recordarme, guarda el valor del mail y pass
   logInButton.addEventListener('click', function() {
