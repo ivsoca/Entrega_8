@@ -32,14 +32,21 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 window.onload = function() {
-  let contenidoRecordado = localStorage.getItem('contenidoRecordado');
-  if (contenidoRecordado) {
-    document.getElementById('mailuser').value = contenidoRecordado;
+  let contenidoRecordado1 = localStorage.getItem('contenidoRecordado1');
+  if (contenidoRecordado1) {
+    document.getElementById('mailuser').value = contenidoRecordado1;
+  }
+
+  var contenidoRecordado2 = localStorage.getItem('contenidoRecordado2');
+  if (contenidoRecordado2) {
+    document.getElementById('passworduser').value = contenidoRecordado2;
   }
 };
 
 document.getElementById('recordarme').addEventListener('click', function() {
-  var contenidoInput = document.getElementById('mailuser').value;
+  var contenidoInput1 = document.getElementById('mailuser').value;
+  var contenidoInput2 = document.getElementById('passworduser').value;
 
-  localStorage.setItem('contenidoRecordado', contenidoInput);
+  localStorage.setItem('contenidoRecordado1', contenidoInput1);
+  localStorage.setItem('contenidoRecordado2', contenidoInput2);
 });
