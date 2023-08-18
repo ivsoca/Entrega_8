@@ -20,11 +20,15 @@ document.addEventListener("DOMContentLoaded", function () {
           productItem.innerHTML = 
            `
             <img src="${product.image}" alt="${product.name}">
-            <h2>${product.name}</h2>
-            <p>${product.description}</p>
-            <div>
-              <p>Precio: ${product.cost} ${product.currency}</p>
-              <p>Vendidos: ${product.soldCount}</p>
+            <h2 id="encabezado">${product.name}</h2>
+            <p id="Descripción">${product.description}</p>
+            <div id="testeo">
+              <p><b>Precio:</b> ${product.cost} ${product.currency}</p>
+              <p><b>Vendidos:</b> ${product.soldCount}</p>
+              <div id="botonCarrito">
+              <button id="carritoCompras"><b><span>Comprar</span></b></button>
+              <div class='testeo10'></div>
+              </div>
             </div>
             `
           ;
