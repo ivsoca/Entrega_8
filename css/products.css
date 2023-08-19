@@ -38,6 +38,7 @@ body {
   justify-content: center;
   margin: 10px auto;
 }
+
 .product-item {
   position: relative;
   display: flex;
