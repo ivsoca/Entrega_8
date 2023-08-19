@@ -13,7 +13,29 @@
   --light-blue-1: #bbd0ff;
   --light-blue-2: #afc9ff;
 }
+.img-encabezado{
+  background-image: url(/img/banner.jpg);
+  margin-bottom: 15px;
+}
+.box-item{
+  gap: 15px;
+}
+.encabezado-cat{
+  margin-right: 35%;
+}
 
+#background{
+  background-color: #e3e0ff;
+}
+.list-group-item-action{
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.list-group-item-action:hover{
+  transform: scale(1.01);
+  border-style: inset;
+}
 .jumbotron,
 .card-body,
 .container,
@@ -24,6 +46,14 @@
 .jumbotron .display-4 {
   font-weight: bold;
 }
+.m-3{
+  background-color: #d1c1ff;
+  border-radius: 5px;
+  text-align: center;
+  border-style: inset;
+  border:2px solid #e4dde8;
+}
+
 
 .bd-placeholder-img {
   font-size: 1.125rem;
@@ -88,6 +118,7 @@ main {
 }
 
 footer {
+  background-color:  #e3e0ff ;
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
@@ -189,14 +220,38 @@ footer p {
   color: orange;
 }
 
-a.custom-card,
-a.custom-card:hover {
+.custom-card{
+  transition: all 0.5s ease-in-out ;
+}
+.custom-card:hover {
   color: inherit;
   text-decoration: inherit;
+  transform: scale(1.05);
+}
+
+.checked {
+  color: orange;
+}
+
+.navbar {
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+main {
+  margin-top: 50px;
+}
+
+.navbar ul li {
+  cursor: pointer;
 }
 
 #contenido {
   pointer-events: all;
+  
 }
 
 .popup {
@@ -206,40 +261,35 @@ a.custom-card:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
   justify-content: center;
   align-items: center;
 }
 
+.popup::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  backdrop-filter: blur(3px);
+  z-index: -1;
+}
+#loginButton{
+  font-size: 14px;
+  font-family:Arial, Helvetica, sans-serif;
+  border-color: rgba(207, 207, 207, 0.998);
+  border-radius: 5px;
+  background-color:#afd4f2;
+}
 .popup-content {
-  background-color: #c8b6ffb6;
+  background-color: rgba(236, 217, 243, 0.844);
   padding: 20px;
-
+  border-color: rgba(207, 207, 207, 0.387);
+  border-radius: 5px;
+border-style: inset;
   border-radius: 5px;
   text-align: center;
+  cursor:pointer;
 }
 
-/* Media querys */
-@media (min-width: 768px) {
-  .jumbotron {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
-}
-
-/* Animations */
-@keyframes lds-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
