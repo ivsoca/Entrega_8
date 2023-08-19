@@ -9,8 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordIsShort = passwordElement.value.length < 6;
 
     //* Guardar e-mail al localStorage si está todo correcto
-    if (emailElement.value && passwordElement.value && emailHasAt && emailHasDot && !passwordIsShort) {
-      localStorage.setItem("email", emailElement);
+    if (
+      emailElement.value &&
+      passwordElement.value &&
+      emailHasAt &&
+      emailHasDot &&
+      !passwordIsShort
+    ) {
+      localStorage.setItem("email", emailElement.value);
       window.location.href = "index.html";
     } else {
       // Dar errores especificos
@@ -25,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
           alert("La contraseña debe contener al menos seis caracteres");
           break;
         default:
-          break;       
+          break;
       }
     }
   });
@@ -34,8 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const recordarmeCheck = document.getElementById("recordarme");
   const mailInputElement = document.getElementById("mailuser");
   const passwordInputElement = document.getElementById("passworduser");
-  let mailRecordado = localStorage.getItem('mailRecordado');
-  let passwordRecordada = localStorage.getItem('mailRecordado');
+  let mailRecordado = localStorage.getItem("mailRecordado");
+  let passwordRecordada = localStorage.getItem("mailRecordado");
 
   // Si contenido recordado es truthy (!= null)
   if (mailRecordado) {
@@ -43,14 +49,14 @@ document.addEventListener("DOMContentLoaded", function () {
     mailInputElement.value = mailRecordado;
   }
   if (passwordRecordada) {
-    passwordInputElement.value = passwordRecordada
+    passwordInputElement.value = passwordRecordada;
   }
 
   // Cuando se apreta el botón de log in, si está chekeado el recordarme, guarda el valor del mail y pass
-  logInButton.addEventListener('click', function() {
+  logInButton.addEventListener("click", function () {
     if (recordarmeCheck.checked) {
-      localStorage.setItem('mailRecordado', mailInputElement.value);
-      localStorage.setItem('passwordRecordada', passwordInputElement.value);
+      localStorage.setItem("mailRecordado", mailInputElement.value);
+      localStorage.setItem("passwordRecordada", passwordInputElement.value);
     }
   });
 });
