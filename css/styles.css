@@ -14,7 +14,7 @@
   --light-blue-2: #afc9ff;
 }
 .img-encabezado{
-  background-image: url(/img/banner.jpg);
+  background-image: url(../banner.jpg);
   margin-bottom: 15px;
 }
 .box-item{
