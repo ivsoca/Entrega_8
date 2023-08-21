@@ -27,6 +27,9 @@
 #background{
   background-color: #e3e0ff;
 }
+.list-group-item {
+  background-color: var(--bg-color);
+}
 .list-group-item-action{
   transition: transform 0.3s ease;
   cursor: pointer;
