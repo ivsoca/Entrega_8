@@ -20,9 +20,6 @@
 .box-item{
   gap: 15px;
 }
-.encabezado-cat{
-  margin-right: 35%;
-}
 
 #background{
   background-color: #e3e0ff;
@@ -271,12 +268,12 @@ main {
 
 #contenido {
   pointer-events: all;
-  
 }
 
 .popup {
   display: none;
   position: fixed;
+  z-index: 2;
   top: 0;
   left: 0;
   width: 100%;
