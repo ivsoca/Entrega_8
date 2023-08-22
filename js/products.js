@@ -1,7 +1,8 @@
 // products.js
 document.addEventListener("DOMContentLoaded", function () {
-  const url = "https://japceibal.github.io/emercado-api/cats_products/101.json";
+  const url = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem("catID")}.json`
   const productList = document.querySelector("#product-list");
+  const spanproducts = document.getElementById("categoria-producto")
 
   fetch(url)
     .then((response) => {
@@ -12,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .then((data) => {
       const products = data.products;
+      spanproducts.innerText = data.catName
 
       products.forEach((product) => {
         const productItem = document.createElement("div");
@@ -28,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
 
         productList.appendChild(productItem);
+      
       });
     })
     .catch((error) => {
