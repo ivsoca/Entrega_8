@@ -1,8 +1,8 @@
 // products.js
 document.addEventListener("DOMContentLoaded", function () {
-  const url = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem("catID")}.json`
+  const url = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem("catID")}.json`;
   const productList = document.querySelector("#product-list");
-  const spanproducts = document.getElementById("categoria-producto")
+  const spanproducts = document.getElementById("categoria-producto");
 
   fetch(url)
     .then((response) => {
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .then((data) => {
       const products = data.products;
-      spanproducts.innerText = data.catName
+      spanproducts.innerText = data.catName;
 
       products.forEach((product) => {
         const productItem = document.createElement("div");
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         productItem.innerHTML = `
             <img src="${product.image}" alt="${product.name}">
-            <h2 class="encabezado">${product.name}</h2>
+            <h2 class="encabezado" title="${product.name}">${product.name}</h2>
             <div class="product-gradiant"></div>
             <p class="precio-producto">$${product.cost} ${product.currency}</p>
             <p class="descripcion-producto">${product.description}</p>
@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
 
         productList.appendChild(productItem);
-      
       });
     })
     .catch((error) => {
