@@ -11,8 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   <div class="login-container">
   <p id="email-p">${userEmail}</p>
   <input type="image" src=${
-    localStorage.getItem(`${userEmail}-icon`) ||
-    "./iconos_perfil/foto-login-perfil.png"
+    localStorage.getItem(`${userEmail}-icon`) || "./iconos_perfil/foto-login-perfil.png"
   } id="perfil" class="foto-perfil-login">
     </input>
   <div class="tarjeta" id="tarjeta">
@@ -89,8 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const tarjeta = document.getElementById("tarjeta");
 
     perfil.addEventListener("click", () => {
-      tarjeta.style.display =
-        tarjeta.style.display === "flex" ? "none" : "flex";
+      tarjeta.style.display = tarjeta.style.display === "flex" ? "none" : "flex";
     });
   } else {
     navbar.appendChild(loginNav);
@@ -98,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.getElementById("salir").addEventListener("click", function () {
     localStorage.removeItem("email");
-    //esto hay que cambiarlo
+    //! esto hay que cambiarlo
     location.reload();
   });
 });
@@ -108,10 +106,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const popup = document.getElementsByClassName("popup-wrapper")[0];
   const btnAbrirPopup = document.getElementById("popup-cambio-img");
   const btnCerrar = document.getElementsByClassName("cerrar")[0];
-  let iconos;
   btnAbrirPopup.addEventListener("click", function () {
     popup.style.display = "block";
-    iconos = document.getElementsByClassName("opcion-icono");
+    const iconos = document.getElementsByClassName("opcion-icono");
     console.log(typeof iconos);
     Object.values(iconos).forEach((button) => {
       button.addEventListener("click", function () {

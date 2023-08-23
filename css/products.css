@@ -17,6 +17,7 @@ body {
 }
 
 .img-encabezado{
+  margin-right: 35%;
   background-image: url(/img/banner.jpg);
   position: absolute;
   width: 100%;
@@ -51,12 +52,12 @@ body {
 }
 
 .product-item {
-  position: relative;
   display: flex;
   flex-direction: column;
+  position: relative;
   margin: 14px;
   height: 410px;
-  width: 300px;
+  max-width: 300px;
   background-color: var(--bg-color);
   border-radius: 20px;
   cursor: pointer;
@@ -65,7 +66,6 @@ body {
   transition: all 0.3s ease;
   outline: 1px solid rgba(200, 182, 255, 0.5);
 }
-
 
 .product-item:hover {
   transform: scale(1.01);
@@ -82,14 +82,18 @@ body {
 }
 
 .product-item h2 {
-  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
   position: absolute;
   top: 147px;
   right: 5px;
-  width: 330px;
+  width: 280px;
   font-size: 26px;
   font-weight: bold;
   text-align: end;
+  white-space: nowrap;
   z-index: 2;
 }
 
