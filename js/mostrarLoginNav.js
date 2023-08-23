@@ -7,9 +7,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   loginIn.classList.add("nav-item");
   const userEmail = localStorage.getItem("email");
+  const partes = userEmail.split("@")
+  
   loginIn.innerHTML = `<link rel="stylesheet" href="css/usuario-logueado-nav.css">
   <div class="login-container">
-  <p id="email-p">${userEmail}</p>
+  <p id="email-p">${partes[0]}</p>
   <input type="image" src=${
     localStorage.getItem(`${userEmail}-icon`) || "./iconos_perfil/foto-login-perfil.png"
   } id="perfil" class="foto-perfil-login">
