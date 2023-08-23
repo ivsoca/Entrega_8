@@ -13,9 +13,14 @@
   --light-blue-1: #bbd0ff;
   --light-blue-2: #afc9ff;
 }
+.pb-5{
+  padding-bottom: 20px !important;
+}
 .img-encabezado{
-  background-image: url(../banner.jpg);
-  margin-bottom: 15px;
+  background-image: url(../bannercategories.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 160px;
 }
 .box-item{
   gap: 15px;
@@ -93,11 +98,7 @@
   font-weight: 300;
 }
 
-.text-center {
-  position: relative;
-  top: 29px;
-  margin: 15px;
-}
+
 
 .btn{
   margin: 10px;
@@ -315,8 +316,4 @@ border-style: inset;
   border-radius: 5px;
   text-align: center;
   cursor:pointer;
-}
-
-.text-center{
-  margin-top: 50px;
 }
