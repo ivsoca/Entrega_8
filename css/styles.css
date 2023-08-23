@@ -26,9 +26,10 @@
   gap: 15px;
 }
 
-#background{
-  background-color: #e3e0ff;
+.list-group {
+  padding: 0 40px;
 }
+
 .list-group-item {
   background-color: var(--bg-color);
 }
