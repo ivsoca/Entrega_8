@@ -15,8 +15,10 @@ document.addEventListener("DOMContentLoaded", function () {
   } id="perfil" class="foto-perfil-login">
     </input>
   <div class="tarjeta" id="tarjeta">
-      <a class="login-perfil">Perfil</a>
-  <button id="popup-cambio-img">Cambiar icono</button>
+      <a class="login-perfil nav-popup-boton">Perfil</a>
+   
+      <button id="popup-cambio-img" class="nav-popup-boton">Cambiar icono</button>
+
   <div class="popup-wrapper">
       <div id="popup-opciones" class="popup-img">
           <div class="popup-contenido">
@@ -67,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   </div>
                   </div>
                   </div>
-                  <p id="salir">logOut</p>
+                  <p id="salir" class="nav-popup-boton">logOut</p>
   </div>
 </div>
     <script src="login.js"<script>
