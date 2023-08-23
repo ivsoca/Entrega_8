@@ -98,7 +98,11 @@
   font-weight: 300;
 }
 
-
+.text-center {
+  position: relative;
+  top: 29px;
+  margin: 15px;
+}
 
 .btn{
   margin: 10px;
