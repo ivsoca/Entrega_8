@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         const products = data.products;
         spanproducts.innerText = data.catName;
-        console.log(products);
         mostrarArticulos(products);
       })
       .catch((error) => {
@@ -148,7 +147,6 @@ document.addEventListener("DOMContentLoaded", function () {
     //Crear regex con el input
     const regex = new RegExp(busquedaElemento.value, "gi");
     filteredProdArr = prodArr.filter((product) => regex.test(product.name));
-    console.log(filteredProdArr);
 
     return filteredProdArr;
   }
