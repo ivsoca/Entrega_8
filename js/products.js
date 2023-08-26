@@ -142,7 +142,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const filtroPrecio = filtrarArticulosPrecio(filtroBusqueda);
     return filtroPrecio;
   }
-
   // Por busqueda
   function filtrarArticulosBusqueda(prodArr) {
     const busquedaElemento = document.getElementById("busqueda-input");
@@ -154,7 +153,6 @@ document.addEventListener("DOMContentLoaded", function () {
     return filteredProdArr;
   }
   // Por precio
-
   function filtrarArticulosPrecio(prodArr) {
     return prodArr;
   }
