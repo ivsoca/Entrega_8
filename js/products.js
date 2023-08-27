@@ -36,6 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("orden-productos").addEventListener("mouseup", () => {
     actualizarArticulos(url);
   });
+  // Filtro
+  document.getElementById("filtro-precio-btn").addEventListener("click", () => {
+    actualizarArticulos(url);
+  });
 
   //* Mostrar articulos
   function mostrarArticulos(prodArr) {
@@ -146,12 +150,50 @@ document.addEventListener("DOMContentLoaded", function () {
     const busquedaElemento = document.getElementById("busqueda-input");
     //Crear regex con el input
     const regex = new RegExp(busquedaElemento.value, "gi");
-    filteredProdArr = prodArr.filter((product) => regex.test(product.name));
-
-    return filteredProdArr;
+    let prodArrFiltrado = prodArr.filter((product) => regex.test(product.name));
+    return prodArrFiltrado;
   }
   // Por precio
   function filtrarArticulosPrecio(prodArr) {
-    return prodArr;
+    const precioMinimo = document.getElementById("filtro-precio-min").value;
+    const precioMaximo = document.getElementById("filtro-precio-max").value;
+    let prodArrFiltrado = [];
+
+    // Devuelve el array original si no se puso nada en uno de los campos
+    if (precioMinimo === "" && precioMaximo === "") {
+      return prodArr;
+    }
+
+    // Si se ingresó precio minimo y maximo
+    if (precioMinimo !== "" && precioMaximo !== "") {
+      prodArrFiltrado = prodArr.filter((product) => {
+        if (product.cost >= precioMinimo && product.cost <= precioMaximo) {
+          return true;
+        }
+        return false;
+      });
+    }
+
+    // Si solo hay precio minimo
+    if (precioMinimo !== "" && precioMaximo === "") {
+      prodArrFiltrado = prodArr.filter((product) => {
+        if (product.cost >= precioMinimo) {
+          return true;
+        }
+        return false;
+      });
+    }
+
+    // Si solo hay precio máximo
+    if (precioMaximo !== "" && precioMinimo === "") {
+      prodArrFiltrado = prodArr.filter((product) => {
+        if (product.cost <= precioMaximo) {
+          return true;
+        }
+        return false;
+      });
+    }
+
+    return prodArrFiltrado;
   }
 });
