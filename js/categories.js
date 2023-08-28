@@ -141,3 +141,17 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
     });
 });
+
+
+
+//Filtro de la parte de categorias, se encarga de hacer una busqueda a tiempo real de lo que estan buscando en esa seccion, cuando apretas en "filtrar busqueda"
+document.addEventListener('keyup', e => {
+    if(e.target.matches('#filtrar-busqueda')){
+        document.querySelectorAll('.list-group-item').forEach(articulos => {
+            articulos.textContent.toLowerCase().includes(e.target.value)
+            ? articulos.classList.remove('filtro')
+            : articulos.classList.add('filtro');
+        })
+    }   
+});
+

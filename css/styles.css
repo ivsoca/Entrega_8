@@ -323,3 +323,9 @@ border-style: inset;
   text-align: center;
   cursor:pointer;
 }
+
+
+/* filtro de categories.js que se encarga de crearlo y eliminarlo dependiendo de la condicion */
+.filtro{
+  display: none;
+}
