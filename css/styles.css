@@ -323,3 +323,7 @@ border-style: inset;
   text-align: center;
   cursor:pointer;
 }
+
+.text-center {
+  margin-top: 25px;
+}
