@@ -2,7 +2,6 @@ body {
   background-color: #f8f9fa;
 }
 
-
 .carritodecompras i {
   display: flex;
   align-items: center;
@@ -16,7 +15,7 @@ body {
   transform: translateX(370px);
 }
 
-.img-encabezado{
+.img-encabezado {
   margin-right: 35%;
   position: absolute;
   width: 100%;
@@ -155,6 +154,91 @@ body {
   color: #555;
 }
 
-
 /* Import font */
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap");
+
+/** BUSQUEDA, ORDEN Y FILTROS */
+/* Busqueda */
+#contenedor-filtros-productos {
+  display: block;
+  margin: auto;
+  align-items: center;
+  text-align: center;
+  width: 80%;
+}
+
+#busqueda-productos input {
+  vertical-align: middle;
+  height: 36px;
+  width: 50%;
+  padding: 5px;
+  border: 1px solid darkgray;
+  border-radius: 20px 0 0 20px;
+}
+
+#busqueda-productos input:focus {
+  outline: none;
+}
+
+#busqueda-productos button {
+  vertical-align: middle;
+  width: 40px;
+  height: 36px;
+  margin-left: -5px;
+  padding: 0 10px 0 5px;
+  border: 1px solid gray;
+  border-radius: 0 20px 20px 0;
+  background-color: #bbb;
+}
+
+/* Orden */
+#orden-productos {
+  display: block;
+  width: fit-content;
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 20px;
+  background-color: #CCC;
+  overflow: hidden;
+  font-size: 0; /*! Importante, sino aparecen espacios entre los botones*/
+  /* Para cambiar font-size cambiar el de .prod-radio-label */
+}
+
+.prod-radio {
+  display: none;
+}
+
+.prod-radio-label {
+  display: inline-block;
+  padding: 4px 8px;
+  color: black;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.prod-radio-label:hover {
+  color: black;
+  background-color: darkgray;
+  cursor: pointer;
+}
+
+.prod-radio:checked + .prod-radio-label {
+  color: black;
+  background-color: gray;
+  cursor: pointer;
+}
+
+/* Precio  */
+
+#filtros-productos {
+  display: inline-block;
+  margin: 5px;
+}
+
+#filtro-precio-texto {
+  margin: 0;
+}
+
+#filtro-precio-btn {
+  margin: 0;
+}
