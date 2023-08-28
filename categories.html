@@ -47,49 +47,69 @@
       </nav>
       <main class="pb-5">
         <div class="text-center p-4 img-encabezado">
+          <div class="encabezado-cat">
+            <h2>Categorías</h2>
+            <p class="lead">Verás aquí todas las categorías del sitio.</p>
+          </div>
         </div>
-      </main>       
-  <div class="contenedor-filtros">
-    <div class="menu" id="menu-desplegable">
-       <div class="boton-desplegable">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#searchCollapse" aria-expanded="true" aria-controls="searchCollapse">
-                  Filtrar busqueda
-                </button>
-        <div id="searchCollapse" class="accordion-collapse collapse" aria-labelledby="searchHeading" data-bs-parent="#searchAccordion">
-          <div class="contenido-desplegable">
-              <div class="row">
-                    <div class="col text-end">
-                      <input class="box-busqueda" type="search" placeholder="Buscar artículo" id="filtrar-busqueda" />
-                      <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
-                        <input type="radio" class="btn-check" name="options" id="sortAsc" />
-                        <label class="btn btn-light a-z" for="sortAsc">A-Z</label>
-                        <input type="radio" class="btn-check" name="options" id="sortDesc" />
-                        <label class="btn btn-light z-a" for="sortDesc">Z-A</label>
-                        <input type="radio" class="btn-check" name="options" id="sortByCount" checked />
-                        <label class="btn btn-light" for="sortByCount"><i class="fas fa-sort-amount-down mr-1"></i></label>
+      </main>
+      <div class="contenedor-filtros">
+        <div class="menu" id="menu-desplegable">
+          <div class="boton-desplegable">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#searchCollapse"
+              aria-expanded="true"
+              aria-controls="searchCollapse">
+              Filtrar busqueda
+            </button>
+            <div id="searchCollapse" class="accordion-collapse collapse"
+              aria-labelledby="searchHeading" data-bs-parent="#searchAccordion">
+              <div class="contenido-desplegable">
+                <div>
+                  <div class="col text-end">
+                    <input class="box-busqueda" type="search"
+                      placeholder="Buscar artículo" id="filtrar-busqueda" />
+                    <div class="btn-group btn-group-toggle mb-4"
+                      data-bs-toggle="buttons">
+                      <input type="radio" class="btn-check" name="options"
+                        id="sortAsc" />
+                      <label class="btn btn-light a-z" for="sortAsc">A-Z</label>
+                      <input type="radio" class="btn-check" name="options"
+                        id="sortDesc" />
+                      <label class="btn btn-light z-a" for="sortDesc">Z-A</label>
+                      <input type="radio" class="btn-check" name="options"
+                        id="sortByCount" checked />
+                      <label class="btn btn-light" for="sortByCount"><i
+                          class="fas fa-sort-amount-down mr-1"></i></label>
+                    </div>
+                    <div class="rango-precio">
+                      <p class="font-weight-normal text-end my-2">Cant.</p>
+                      <input class="form-control" type="number"
+                        placeholder="min." id="rangeFilterCountMin" />
+                      <input class="form-control" type="number"
+                        placeholder="máx." id="rangeFilterCountMax" />
+                    </div>
+                    <div class="p-0">
+                      <div class="btn-group btn-filtrar" role="group">
+                        <button class="btn btn-light btn-block"
+                          id="rangeFilterCount">Filtrar</button>
+                        <button class="btn btn-link btn-sm"
+                          id="clearRangeFilter">Limpiar</button>
                       </div>
-                            <div class="rango-precio">
-                              <p class="font-weight-normal text-end my-2">Cant.</p>
-                              <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin" />
-                              <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax" />
-                            </div>
-                            <div class="col-3 p-0">
-                             <div class="btn-group" role="group">
-                                <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
-                                <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
+            </div>
           </div>
         </div>
-     </div>
- </div>
-          <div class="row">
-            <div class="list-group box-item" id="cat-list-container"></div>
-          </div>
-        </div>
+      </div>
+      <div class="row">
+        <div class="list-group box-item" id="cat-list-container"></div>
+      </div>
     </div>
 
     <footer class="text-muted">
@@ -97,8 +117,7 @@
         <p class="float-end">
           <a href="#">Volver arriba</a>
         </p>
-        <p>Este sitio forma parte de <a
-            href="https://jovenesaprogramar.edu.uy/"
+        <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/"
             target="_blank">Jovenes a Programar</a></p>
       </div>
     </footer>
