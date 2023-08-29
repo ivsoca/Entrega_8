@@ -330,5 +330,5 @@ border-style: inset;
 
 /* filtro de categories.js que se encarga de crearlo y eliminarlo dependiendo de la condicion */
 .filtro{
-  display: none;
+  display: none !important;
 }

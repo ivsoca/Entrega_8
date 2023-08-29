@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const url = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem("catID")}.json`;
+  const url = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem(
+    "catID"
+  )}.json`;
   const productList = document.querySelector("#product-list");
   const spanproducts = document.getElementById("categoria-producto");
 
@@ -22,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
   obtenerArticulos(url); //Muestra inicial
-
   //* Actualizar articulos en busqueda, orden y filtro
   function actualizarArticulos(url) {
     eliminarArticulos();
@@ -71,7 +72,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //* Ordenar articulos
   const ordenAlfabetico = document.getElementById("orden-alfabetico");
-  const ordenAlfabeticoInverso = document.getElementById("orden-alfabetico-inv");
+  const ordenAlfabeticoInverso = document.getElementById(
+    "orden-alfabetico-inv"
+  );
   const ordenPrecio = document.getElementById("orden-precio");
   const ordenPrecioInverso = document.getElementById("orden-precio-inv");
   //TODO: Agregar por orden de vendidos
