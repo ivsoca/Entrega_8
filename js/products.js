@@ -72,12 +72,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //* Ordenar articulos
   const ordenAlfabetico = document.getElementById("orden-alfabetico");
-  const ordenAlfabeticoInverso = document.getElementById(
-    "orden-alfabetico-inv"
-  );
+  const ordenAlfabeticoInverso = document.getElementById("orden-alfabetico-inv");
   const ordenPrecio = document.getElementById("orden-precio");
   const ordenPrecioInverso = document.getElementById("orden-precio-inv");
-  //TODO: Agregar por orden de vendidos
+  const ordenMasVendidos = document.getElementById("orden-vendidos");
 
   function ordenarArticulos(prodArr) {
     switch (true) {
@@ -89,6 +87,9 @@ document.addEventListener("DOMContentLoaded", function () {
         break;
       case ordenPrecioInverso.checked:
         ordenarArticulosPrecioInv(prodArr);
+        break;
+      case ordenMasVendidos.checked:
+        ordenarArticulosVendido(prodArr);
         break;
       default:
         ordenarArticulosAlfa(prodArr);
@@ -200,3 +201,16 @@ document.addEventListener("DOMContentLoaded", function () {
     return prodArrFiltrado;
   }
 });
+
+//Filtro por articulos vendidos
+function ordenarArticulosVendido(prodArr) {
+  return prodArr.sort((a, b) => {
+    if (a.soldCount < b.soldCount) {
+      return 1;
+    }
+    if (a.soldCount > b.soldCount) {
+      return -1;
+    }
+    return 0;
+  });
+}
