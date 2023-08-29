@@ -142,6 +142,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  //Filtro por articulos vendidos
+function ordenarArticulosVendido(prodArr) {
+  return prodArr.sort((a, b) => {
+    if (a.soldCount < b.soldCount) {
+      return 1;
+    }
+    if (a.soldCount > b.soldCount) {
+      return -1;
+    }
+    return 0;
+  });
+}
+
   //TODO:
   //* Filtrar articulos
   function filtrarArticulos(prodArr) {
@@ -202,15 +215,4 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-//Filtro por articulos vendidos
-function ordenarArticulosVendido(prodArr) {
-  return prodArr.sort((a, b) => {
-    if (a.soldCount < b.soldCount) {
-      return 1;
-    }
-    if (a.soldCount > b.soldCount) {
-      return -1;
-    }
-    return 0;
-  });
-}
+
