@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     obtenerArticulos(url);
   }
   // Busqueda
-  document.getElementById("busqueda-btn").addEventListener("click", () => {
+  document.getElementById("busqueda-input").addEventListener("keyup", () => {
     actualizarArticulos(url);
   });
   // Orden
