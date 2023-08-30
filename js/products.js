@@ -161,7 +161,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function filtrarArticulosBusqueda(prodArr) {
     const busquedaElemento = document.getElementById("busqueda-input");
     const regex = new RegExp(busquedaElemento.value, "gi");
-    let prodArrFiltrado = prodArr.filter((product) => regex.test(product.name));
+    let prodArrFiltrado = prodArr.filter((product) => {
+      return regex.test(product.name) || regex.test(product.description);
+    });
     return prodArrFiltrado;
   }
   // Por precio
