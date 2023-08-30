@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
       productItem.innerHTML = `
           <img src="${product.image}" alt="${product.name}">
           <h2 class="encabezado" title="${product.name}">${product.name}</h2>
-          <div class="product-gradiant"></div>
+          <div class="product-gradient"></div>
           <p class="precio-producto">$${product.cost} ${product.currency}</p>
           <p class="descripcion-producto">${product.description}</p>
           <button class="boton-producto">Comprar</button>

@@ -57,27 +57,23 @@ function showCategoriesList() {
     let category = currentCategoriesArray[i];
 
     if (
-      (minCount == undefined ||
-        (minCount != undefined &&
-          parseInt(category.productCount) >= minCount)) &&
-      (maxCount == undefined ||
-        (maxCount != undefined && parseInt(category.productCount) <= maxCount))
+      (minCount == undefined || (minCount != undefined && parseInt(category.productCount) >= minCount)) &&
+      (maxCount == undefined || (maxCount != undefined && parseInt(category.productCount) <= maxCount))
     ) {
       htmlContentToAppend += `
             <div onclick="setCatID(${category.id})" class="product-item list-product-item">
-                        <img src="${category.imgSrc}" alt="${category.description}">
-                            <h2 class="encabezado">${category.name}</h2>
-                    <div class="product-gradient"></div>
-                <p class="precio-producto"></p>
-                        <p class="descripcion-producto box-descripcion">${category.description}</p>
-                        <button class="boton-producto box-botonpr">Ir</button>
-                        <small class="text-muted cant-articulos">${category.productCount} artículos</small>
+              <img src="${category.imgSrc}" alt="${category.description}">
+              <h2 class="encabezado">${category.name}</h2>
+              <div class="product-gradient"></div>
+              <p class="precio-producto"></p>
+              <p class="descripcion-producto box-descripcion">${category.description}</p>
+              <button class="boton-producto box-botonpr">Ir</button>
+              <small class="text-muted cant-articulos">${category.productCount} artículos</small>
             </div>
             `;
     }
 
-    document.getElementById("cat-list-container").innerHTML =
-      htmlContentToAppend;
+    document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
   }
 }
 
@@ -88,10 +84,7 @@ function sortAndShowCategories(sortCriteria, categoriesArray) {
     currentCategoriesArray = categoriesArray;
   }
 
-  currentCategoriesArray = sortCategories(
-    currentSortCriteria,
-    currentCategoriesArray
-  );
+  currentCategoriesArray = sortCategories(currentSortCriteria, currentCategoriesArray);
 
   //Muestro las categorías ordenadas
   showCategoriesList();
@@ -121,40 +114,36 @@ document.addEventListener("DOMContentLoaded", function (e) {
     sortAndShowCategories(ORDER_BY_PROD_COUNT);
   });
 
-  document
-    .getElementById("clearRangeFilter")
-    .addEventListener("click", function () {
-      document.getElementById("rangeFilterCountMin").value = "";
-      document.getElementById("rangeFilterCountMax").value = "";
+  document.getElementById("clearRangeFilter").addEventListener("click", function () {
+    document.getElementById("rangeFilterCountMin").value = "";
+    document.getElementById("rangeFilterCountMax").value = "";
 
+    minCount = undefined;
+    maxCount = undefined;
+
+    showCategoriesList();
+  });
+
+  document.getElementById("rangeFilterCount").addEventListener("click", function () {
+    //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
+    //de productos por categoría.
+    minCount = document.getElementById("rangeFilterCountMin").value;
+    maxCount = document.getElementById("rangeFilterCountMax").value;
+
+    if (minCount != undefined && minCount != "" && parseInt(minCount) >= 0) {
+      minCount = parseInt(minCount);
+    } else {
       minCount = undefined;
+    }
+
+    if (maxCount != undefined && maxCount != "" && parseInt(maxCount) >= 0) {
+      maxCount = parseInt(maxCount);
+    } else {
       maxCount = undefined;
+    }
 
-      showCategoriesList();
-    });
-
-  document
-    .getElementById("rangeFilterCount")
-    .addEventListener("click", function () {
-      //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
-      //de productos por categoría.
-      minCount = document.getElementById("rangeFilterCountMin").value;
-      maxCount = document.getElementById("rangeFilterCountMax").value;
-
-      if (minCount != undefined && minCount != "" && parseInt(minCount) >= 0) {
-        minCount = parseInt(minCount);
-      } else {
-        minCount = undefined;
-      }
-
-      if (maxCount != undefined && maxCount != "" && parseInt(maxCount) >= 0) {
-        maxCount = parseInt(maxCount);
-      } else {
-        maxCount = undefined;
-      }
-
-      showCategoriesList();
-    });
+    showCategoriesList();
+  });
 });
 
 //Filtro de la parte de categorias, se encarga de hacer una busqueda a tiempo real de lo que estan buscando en esa seccion, cuando apretas en "filtrar busqueda"
@@ -162,18 +151,14 @@ document.addEventListener("keyup", (e) => {
   if (e.target.matches("#filtrar-busqueda")) {
     const searchTerm = e.target.value.toLowerCase();
     document.querySelectorAll(".list-product-item").forEach((articulos) => {
-      articulos.textContent.toLowerCase().includes(searchTerm)
-        ? articulos.classList.remove("filtro")
-        : articulos.classList.add("filtro");
+      articulos.textContent.toLowerCase().includes(searchTerm) ? articulos.classList.remove("filtro") : articulos.classList.add("filtro");
     });
   }
 });
 document.addEventListener("keyup", (e) => {
   if (e.target.matches("#filtrar-busqueda")) {
     document.querySelectorAll(".list-product-item").forEach((articulos) => {
-      articulos.textContent.toLowerCase().includes(e.target.value)
-        ? articulos.classList.remove("filtro")
-        : articulos.classList.add("filtro");
+      articulos.textContent.toLowerCase().includes(e.target.value) ? articulos.classList.remove("filtro") : articulos.classList.add("filtro");
     });
   }
 });

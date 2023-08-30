@@ -96,7 +96,7 @@ body {
   z-index: 2;
 }
 
-.product-gradiant {
+.product-gradient {
   display: block;
   position: absolute;
   height: 100px;
@@ -121,10 +121,6 @@ body {
 
 .box-botonpr {
   margin-top: 10% !important;
-}
-
-.cant-articulos {
-  margin-left: 10px;
 }
 
 .descripcion-producto {
@@ -160,7 +156,8 @@ body {
   outline: 1px solid white;
 }
 
-.vendidos-producto {
+.vendidos-producto,
+.cant-articulos {
   font-size: 15px;
   text-align: end;
   padding-right: 30px;
