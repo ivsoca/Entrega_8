@@ -215,4 +215,11 @@ function ordenarArticulosVendido(prodArr) {
   }
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+  const input = document.getElementById("busqueda-input");
+  const botonBorrar = document.getElementById("borrar-filtros-btn");
 
+  botonBorrar.addEventListener("click", ()=> {
+  input.value = ""; // Borra el contenido del campo de búsqueda
+  });
+});
