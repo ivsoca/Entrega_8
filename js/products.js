@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const url = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem(
-    "catID"
-  )}.json`;
+  const url = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem("catID")}.json`;
   const productList = document.querySelector("#product-list");
   const spanproducts = document.getElementById("categoria-producto");
 
@@ -24,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
   obtenerArticulos(url); //Muestra inicial
+
   //* Actualizar articulos en busqueda, orden y filtro
   function actualizarArticulos(url) {
     eliminarArticulos();
@@ -96,7 +95,6 @@ document.addEventListener("DOMContentLoaded", function () {
         break;
     }
   }
-
   function ordenarArticulosAlfa(prodArr) {
     return prodArr.sort((a, b) => {
       if (a.name.toLowerCase() < b.name.toLowerCase()) {
@@ -141,21 +139,18 @@ document.addEventListener("DOMContentLoaded", function () {
       return 0;
     });
   }
+  function ordenarArticulosVendido(prodArr) {
+    return prodArr.sort((a, b) => {
+      if (a.soldCount < b.soldCount) {
+        return 1;
+      }
+      if (a.soldCount > b.soldCount) {
+        return -1;
+      }
+      return 0;
+    });
+  }
 
-  //Filtro por articulos vendidos
-function ordenarArticulosVendido(prodArr) {
-  return prodArr.sort((a, b) => {
-    if (a.soldCount < b.soldCount) {
-      return 1;
-    }
-    if (a.soldCount > b.soldCount) {
-      return -1;
-    }
-    return 0;
-  });
-}
-
-  //TODO:
   //* Filtrar articulos
   function filtrarArticulos(prodArr) {
     const filtroBusqueda = filtrarArticulosBusqueda(prodArr);
@@ -165,7 +160,6 @@ function ordenarArticulosVendido(prodArr) {
   // Por busqueda
   function filtrarArticulosBusqueda(prodArr) {
     const busquedaElemento = document.getElementById("busqueda-input");
-    //Crear regex con el input
     const regex = new RegExp(busquedaElemento.value, "gi");
     let prodArrFiltrado = prodArr.filter((product) => regex.test(product.name));
     return prodArrFiltrado;
@@ -215,11 +209,11 @@ function ordenarArticulosVendido(prodArr) {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const input = document.getElementById("busqueda-input");
   const botonBorrar = document.getElementById("borrar-filtros-btn");
 
-  botonBorrar.addEventListener("click", ()=> {
-  input.value = ""; // Borra el contenido del campo de búsqueda
+  botonBorrar.addEventListener("click", () => {
+    input.value = ""; // Borra el contenido del campo de búsqueda
   });
 });
