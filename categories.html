@@ -55,74 +55,40 @@
             <span id="Verás aquí todas las categorías del sitio."></span>
           </h5>
         </div>
-      </main>
-      <div id="contenedor-filtros-productos">
-        <div id="busqueda-productos">
-          <input type="search" id="filtrar-busqueda" placeholder="Busqueda" />
-          <button id="busqueda-btn"><i class="fas fa-search"></i></button>
-        </div>
-        <div id="orden-productos" class="orden-alfa">
-          <label class="btn btn-light a-z" for="sortAsc">A-Z</label>
-          <input type="radio" class="btn-check" name="options"
-          id="sortAsc" />
-          <label class="btn btn-light z-a" for="sortDesc">Z-A</label>
-          <input type="radio" class="btn-check" name="options"
-          id="sortDesc" />
-        </div>
-      </div>
 
-      
-      <div class="contenedor-filtros">
-        <div id="searchCollapse" class="accordion-collapse collapse"
-          aria-labelledby="searchHeading" data-bs-parent="#searchAccordion">
-          <div class="contenido-desplegable">
-            <div>
-              <div class="col text-end box-desplegable">
-                <input class="box-busqueda" type="search"
-                  placeholder="Buscar artículo" id="filtrar-busqueda" />
-                <div class="btn-group btn-group-toggle mb-4"
-                  data-bs-toggle="buttons">
-                  <input type="radio" class="btn-check" name="options"
-                    id="sortAsc" />
-                  <label class="btn btn-light a-z" for="sortAsc">A-Z</label>
-                  <input type="radio" class="btn-check" name="options"
-                    id="sortDesc" />
-                  <label class="btn btn-light z-a" for="sortDesc">Z-A</label>
-                </div>
-                <div class="p-0">
-                  <div class="btn-group btn-filtrar" role="group">
-                    <button class="btn btn-link btn-sm"
-                      id="clearRangeFilter">Limpiar</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div id="contenedor-filtros-productos">
+          <div id="busqueda-productos">
+            <input type="search" id="busqueda-input" placeholder="Busqueda" />
+            <button id="busqueda-btn"><i class="fas fa-search"></i></button>
+          </div>
+          <div id="orden-productos">
+            <input type="radio" class="prod-radio" id="orden-alfabetico"
+              name="ordenar-prod-por" value="A-Z" checked />
+            <label class="prod-radio-label" for="orden-alfabetico">A-Z</label>
+
+            <input type="radio" class="prod-radio" id="orden-alfabetico-inv"
+              name="ordenar-prod-por" value="Z-A" />
+            <label class="prod-radio-label" for="orden-alfabetico-inv">Z-A</label>
           </div>
         </div>
+        <div class="container">
+          <ul id="cat-list-container" class="product-list"></ul>
+        </div>
+      </main>
+      <footer class="text-muted">
+        <div class="container">
+          <p class="float-end">
+            <a href="#">Volver arriba</a>
+          </p>
+          <p>Este sitio forma parte de <a
+              href="https://jovenesaprogramar.edu.uy/"
+              target="_blank">Jovenes a Programar</a></p>
+        </div>
+      </footer>
+      <div id="spinner-wrapper">
+        <div class="lds-ring"></div>
       </div>
     </div>
-  </div>
-      
-      <div class="container">
-        <ul id="cat-list-container" class="product-list" ></ul>
-      </div>
-      </div>
-    </div>
-
-    <footer class="text-muted">
-      <div class="container">
-        <p class="float-end">
-          <a href="#">Volver arriba</a>
-        </p>
-        <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/"
-            target="_blank">Jovenes a Programar</a></p>
-      </div>
-    </footer>
-
-    <div id="spinner-wrapper">
-      <div class="lds-ring"></div>
-    </div>
-
     <div id="loginPopup" class="popup">
       <div class="popup-content">
         <p>Debes estar logueado para acceder a este contenido.</p>
@@ -133,7 +99,7 @@
     <script src="js/init.js"></script>
     <script src="js/categories.js"></script>
     <script src="js/products.js"></script>
-    <script src="js/mostrarLoginNav.js"></script>
     <script src="js/loginPopUp.js"></script>
+    <script src="js/mostrarLoginNav.js"></script>
   </body>
 </html>
