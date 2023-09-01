@@ -161,23 +161,17 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 });
 
-//Filtro de la parte de categorias, se encarga de hacer una busqueda a tiempo real de lo que estan buscando en esa seccion, cuando apretas en "filtrar busqueda"
+//Filtro de la parte de categorias, se encarga de hacer una busqueda a tiempo real de lo que estan buscando en esa seccion
 document.addEventListener("keyup", (e) => {
-  if (e.target.matches("#filtrar-busqueda")) {
+  if (e.target.matches("#busqueda-input")) {
     const searchTerm = e.target.value.toLowerCase();
-    document.querySelectorAll(".list-product-item").forEach((articulos) => {
-      articulos.textContent.toLowerCase().includes(searchTerm)
-        ? articulos.classList.remove("filtro")
-        : articulos.classList.add("filtro");
-    });
-  }
-});
-document.addEventListener("keyup", (e) => {
-  if (e.target.matches("#filtrar-busqueda")) {
-    document.querySelectorAll(".list-product-item").forEach((articulos) => {
-      articulos.textContent.toLowerCase().includes(e.target.value)
-        ? articulos.classList.remove("filtro")
-        : articulos.classList.add("filtro");
+    document.querySelectorAll(".list-product-item").forEach((articulo) => {
+      const articuloText = articulo.textContent.toLowerCase();
+      if (articuloText.includes(searchTerm)) {
+        articulo.classList.remove("filtro");
+      } else {
+        articulo.classList.add("filtro");
+      }
     });
   }
 });
