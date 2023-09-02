@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const url = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem("catID")}.json`;
+  const url = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem(
+    "catID"
+  )}.json`;
   const productList = document.querySelector("#product-list");
   const spanproducts = document.getElementById("categoria-producto");
 
@@ -56,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="product-gradient"></div>
           <p class="precio-producto">$${product.cost} ${product.currency}</p>
           <p class="descripcion-producto">${product.description}</p>
-          <button class="boton-producto">Comprar</button>
+          <button class="boton-producto" data-id="${product.id}">Ver Producto</button>
           <p class="vendidos-producto">Vendidos: ${product.soldCount}</p>
           `;
 
@@ -71,7 +73,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //* Ordenar articulos
   const ordenAlfabetico = document.getElementById("orden-alfabetico");
-  const ordenAlfabeticoInverso = document.getElementById("orden-alfabetico-inv");
+  const ordenAlfabeticoInverso = document.getElementById(
+    "orden-alfabetico-inv"
+  );
   const ordenPrecio = document.getElementById("orden-precio");
   const ordenPrecioInverso = document.getElementById("orden-precio-inv");
   const ordenMasVendidos = document.getElementById("orden-vendidos");
@@ -217,5 +221,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   botonBorrar.addEventListener("click", () => {
     input.value = ""; // Borra el contenido del campo de búsqueda
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const buttons = document.querySelectorAll(".boton-producto");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", function () {
+      // Obtén el id del producto desde el atributo data-id
+      const productId = button.getAttribute("data-id");
+
+      // Redirige a la página "product-info.html" con el id del producto como parámetro
+      window.location.href = `product-info.html?id=${productId}`;
+    });
   });
 });

@@ -1,3 +1,4 @@
+//
 document.addEventListener("DOMContentLoaded", function () {
   let navbar = document.getElementById("navlist");
   let logoutNav = document.createElement("li");
@@ -7,13 +8,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   loginIn.classList.add("nav-item");
   const userEmail = localStorage.getItem("email");
-  const partes = userEmail.split("@")
-  
+  const partes = userEmail.split("@");
+
   loginIn.innerHTML = `<link rel="stylesheet" href="css/usuario-logueado-nav.css">
   <div class="login-container">
   <p id="email-p">${partes[0]}</p>
   <input type="image" src=${
-    localStorage.getItem(`${userEmail}-icon`) || "./iconos_perfil/foto-login-perfil.png"
+    localStorage.getItem(`${userEmail}-icon`) ||
+    "./iconos_perfil/foto-login-perfil.png"
   } id="perfil" class="foto-perfil-login">
     </input>
   <div class="tarjeta" id="tarjeta">
@@ -92,7 +94,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const tarjeta = document.getElementById("tarjeta");
 
     perfil.addEventListener("click", () => {
-      tarjeta.style.display = tarjeta.style.display === "flex" ? "none" : "flex";
+      tarjeta.style.display =
+        tarjeta.style.display === "flex" ? "none" : "flex";
     });
   } else {
     navbar.appendChild(loginNav);
