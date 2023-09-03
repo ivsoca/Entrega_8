@@ -30,12 +30,12 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav w-100 justify-content-between">
+            <ul class="navbar-nav w-100 justify-content-between" id="navlist">
               <li class="nav-item">
                 <a class="nav-link" href="index.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="categories.html">Categorías</a>
+                <a class="nav-link active" href="categories.html">Categorías</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="sell.html">Vender</a>
@@ -46,8 +46,19 @@
         </div>
       </nav>
       <main>
-        <div class="container">
-          <ul id="product-list" class="product-list"></ul>
+        <div class="container" id="productInfo">
+          <h2 class="nombre-product" id="nombreProduct"></h2>
+          <hr />
+          <h3 class="subtitlo-producto">Precio</h3>
+          <p class="texto-subtitulo" id="precioProducto"></p>
+          <h3 class="subtitlo-producto">Descripción</h3>
+          <p class="texto-subtitulo" id="descripcionProducto"></p>
+          <h3 class="subtitlo-producto">Categoria</h3>
+          <p class="texto-subtitulo" id="categoriaProducto"></p>
+          <h3 class="subtitlo-producto">Cantidad de vendidos</h3>
+          <p class="texto-subtitulo" id="cantidadProducto"></p>
+          <h3 class="subtitlo-producto">Imágenes del Producto</h3>
+          <ul class="carrusel-producto" id="carruselProducto"></ul>
         </div>
       </main>
       <footer class="text-muted">
@@ -78,7 +89,6 @@
       <script src="js/init.js"></script>
       <script src="js/loginPopUp.js"></script>
       <script src="js/product-info.js"></script>
-      <script src="js/products.js"></script>
       <script src="js/mostrarLoginNav.js"></script>
     </div>
   </body>

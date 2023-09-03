@@ -51,7 +51,11 @@ document.addEventListener("DOMContentLoaded", function () {
     filteredProdArr.forEach((product) => {
       const productItem = document.createElement("div");
       productItem.classList.add("product-item");
-
+      //Al hacer click en un producto, guarda los datos del json en el localStorage pero en strings Luego se redirige al usuario a product-info.html
+      productItem.addEventListener("click", () => {
+        localStorage.setItem("productoClickeado", JSON.stringify(product));
+        window.location = "product-info.html";
+      });
       productItem.innerHTML = `
           <img src="${product.image}" alt="${product.name}">
           <h2 class="encabezado" title="${product.name}">${product.name}</h2>
@@ -219,6 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const input = document.getElementById("busqueda-input");
   const botonBorrar = document.getElementById("borrar-filtros-btn");
 
+  //TODO arreglar Uncaught Error
   botonBorrar.addEventListener("click", () => {
     input.value = ""; // Borra el contenido del campo de búsqueda
   });
