@@ -1,82 +1,66 @@
-//
 document.addEventListener("DOMContentLoaded", function () {
   let navbar = document.getElementById("navlist");
   let logoutNav = document.createElement("li");
   let loginNav = document.createElement("li");
-
   let loginIn = document.createElement("li");
-
   loginIn.classList.add("nav-item");
   const userEmail = localStorage.getItem("email");
   const partes = userEmail.split("@");
 
-  loginIn.innerHTML = `<link rel="stylesheet" href="css/usuario-logueado-nav.css">
+  loginIn.innerHTML = `
+  <link rel="stylesheet" href="css/usuario-logueado-nav.css">
   <div class="login-container">
-  <p id="email-p">${partes[0]}</p>
-  <input type="image" src=${
-    localStorage.getItem(`${userEmail}-icon`) ||
-    "./iconos_perfil/foto-login-perfil.png"
-  } id="perfil" class="foto-perfil-login">
-    </input>
-  <div class="tarjeta" id="tarjeta">
+    <p id="email-p">${partes[0]}</p>
+    <input type="image" src=${
+      localStorage.getItem(`${userEmail}-icon`) || "./iconos_perfil/foto-login-perfil.png"
+    } id="perfil" class="foto-perfil-login"></input>
+   <div class="tarjeta" id="tarjeta">
       <a class="login-perfil nav-popup-boton">Perfil</a>
-   
       <button id="popup-cambio-img" class="nav-popup-boton">Cambiar icono</button>
-
-  <div class="popup-wrapper">
-      <div id="popup-opciones" class="popup-img">
+      <div class="popup-wrapper">
+        <div id="popup-opciones" class="popup-img">
           <div class="popup-contenido">
-              <span class="cerrar">&times;</span>
-              <h2>Elige tu icono de perfil</h2>
-              <div class="opciones-icono">
-                  <button class="opcion-icono"
-                      data-icon="./iconos_perfil/hombre_(1).png">
-                      <img src="./iconos_perfil/hombre_(1).png" />
-                  </button>
-                  <button class="opcion-icono"
-                      data-icon="./iconos_perfil/hombre_(2).png">
-                      <img src="./iconos_perfil/hombre_(2).png" />
-                  </button>
-                  <button class="opcion-icono"
-                      data-icon="./iconos_perfil/hombre_(3).png">
-                      <img src="./iconos_perfil/hombre_(3).png" />
-                  </button>
-                  <button class="opcion-icono"
-                      data-icon="./iconos_perfil/hombre.png">
-                      <img src="./iconos_perfil/hombre.png" />
-                  </button>
-                  <button class="opcion-icono"
-                      data-icon="./iconos_perfil/usuario.png">
-                      <img src="./iconos_perfil/usuario.png" />
-                  </button>
-                  <button class="opcion-icono"
-                      data-icon="./iconos_perfil/mujer_(1).png">
-                      <img src="./iconos_perfil/mujer_(1).png" />
-                  </button>
-                  <button class="opcion-icono"
-                      data-icon="./iconos_perfil/mujer_(2).png">
-                      <img src="./iconos_perfil/mujer_(2).png" />
-                  </button>
-                  <button class="opcion-icono"
-                      data-icon="./iconos_perfil/mujer_(3).png">
-                      <img src="./iconos_perfil/mujer_(3).png" />
-                  </button>
-                  <button class="opcion-icono"
-                      data-icon="./iconos_perfil/mujer.png">
-                      <img src="./iconos_perfil/mujer.png" />
-                  </button>
-                  <button class="opcion-icono"
-                      data-icon="./iconos_perfil/jugador.png">
-                      <img src="./iconos_perfil/jugador.png" />
-                  </button>
-                  </div>
-                  </div>
-                  </div>
-                  </div>
-                  <p id="salir" class="nav-popup-boton">logOut</p>
+            <span class="cerrar">&times;</span>
+            <h2>Elige tu icono de perfil</h2>
+            <div class="opciones-icono">
+              <button class="opcion-icono" data-icon="./iconos_perfil/hombre_(1).png">
+                <img src="./iconos_perfil/hombre_(1).png" />
+              </button>
+              <button class="opcion-icono" data-icon="./iconos_perfil/hombre_(2).png">
+                <img src="./iconos_perfil/hombre_(2).png" />
+              </button>
+              <button class="opcion-icono" data-icon="./iconos_perfil/hombre_(3).png">
+                <img src="./iconos_perfil/hombre_(3).png" />
+              </button>
+              <button class="opcion-icono" data-icon="./iconos_perfil/hombre.png">
+                <img src="./iconos_perfil/hombre.png" />
+              </button>
+              <button class="opcion-icono" data-icon="./iconos_perfil/usuario.png">
+                <img src="./iconos_perfil/usuario.png" />
+              </button>
+              <button class="opcion-icono" data-icon="./iconos_perfil/mujer_(1).png">
+                <img src="./iconos_perfil/mujer_(1).png" />
+              </button>
+              <button class="opcion-icono" data-icon="./iconos_perfil/mujer_(2).png">
+                <img src="./iconos_perfil/mujer_(2).png" />
+              </button>
+              <button class="opcion-icono" data-icon="./iconos_perfil/mujer_(3).png">
+                <img src="./iconos_perfil/mujer_(3).png" />
+              </button>
+              <button class="opcion-icono" data-icon="./iconos_perfil/mujer.png">
+                <img src="./iconos_perfil/mujer.png" />
+              </button>
+              <button class="opcion-icono" data-icon="./iconos_perfil/jugador.png">
+                <img src="./iconos_perfil/jugador.png" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p id="salir" class="nav-popup-boton">logOut</p>
+    </div>
   </div>
-</div>
-    <script src="login.js"<script>
+  <script src="login.js"></script>
 `;
 
   logoutNav.classList.add("nav-item");
@@ -94,8 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const tarjeta = document.getElementById("tarjeta");
 
     perfil.addEventListener("click", () => {
-      tarjeta.style.display =
-        tarjeta.style.display === "flex" ? "none" : "flex";
+      tarjeta.style.display = tarjeta.style.display === "flex" ? "none" : "flex";
     });
   } else {
     navbar.appendChild(loginNav);
