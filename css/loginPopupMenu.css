@@ -1,0 +1,100 @@
+body {
+  background-color: rgb(33, 33, 33);
+}
+
+/* AAAAAAA */
+
+#login-nav-element {
+  display: none;
+}
+
+/* BBBBBBB */
+#login-menu-container {
+  position: relative;
+  width: 300px;
+  height: 118px;
+  border-radius: 6px;
+  background-color: white;
+}
+
+#login-foto-perfil-usuario {
+  position: absolute;
+  margin-left: 15px;
+  width: 90px;
+  margin-left: 12px;
+}
+
+#login-cambiar-icono-btn {
+  position: absolute;
+  top: 70px;
+  left: 76px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+}
+
+#login-nombre-usuario {
+  position: absolute;
+  top: 0;
+  left: 120px;
+  font-size: 22px;
+}
+
+#login-email-usuario {
+  position: absolute;
+  top: 25px;
+  left: 120px;
+  font-size: 16px;
+  font-weight: 200;
+  color: gray;
+}
+
+#login-edit-perfil-btn {
+  position: absolute;
+  top: 70px;
+  left: 120px;
+  cursor: pointer;
+}
+
+#login-logout-btn {
+  position: absolute;
+  top: 70px;
+  left: 220px;
+  cursor: pointer;
+}
+
+/* BANDEJA DE ICONOS */
+
+#menu-cambiar-icono-container {
+  /* ! SACAR MARGIN */
+  margin: 5px;
+  background-color: white;
+  width: 320px;
+  height: 155px;
+  border-radius: 6px;
+}
+
+#menu-cambiar-icono-titulo {
+  margin: 0;
+  padding-top: 5px;
+  padding-bottom: 8px;
+  text-align: center;
+}
+
+.opcion-icono {
+  all: unset;
+  outline: revert;
+  cursor: pointer;
+  transition: transform 0.2s linear;
+}
+
+.opcion-icono:hover {
+  transform: scale(1.05);
+}
+
+.opcion-icono img{
+  margin: 0 5px;
+  width: 50px;
+}
