@@ -1,25 +1,36 @@
-body {
-  background-color: rgb(33, 33, 33);
+/* Navbar li element */
+#login-nav-li {
+  height: 40px;
+  overflow: hidden;
 }
 
-/* AAAAAAA */
-
-#login-nav-element {
-  display: none;
+#login-nav-li img{
+  display: inline-block;
+  width: 31px;
 }
 
-/* BBBBBBB */
+#login-nav-li p{
+  display: inline-block;
+  margin: 0;
+}
+
+/* Login popup menu */
 #login-menu-container {
-  position: relative;
+  display: none;
+  position: absolute;
+  top: 48px;
+  right: 0;
   width: 300px;
   height: 118px;
   border-radius: 6px;
   background-color: white;
+  border: 1px solid black;
+  z-index: 10;
 }
 
 #login-foto-perfil-usuario {
   position: absolute;
-  margin-left: 15px;
+  margin-top: 10px;
   width: 90px;
   margin-left: 12px;
 }
@@ -35,17 +46,21 @@ body {
   z-index: 1;
 }
 
+#login-cambiar-icono-btn i {
+  margin-left: -1px;
+}
+
 #login-nombre-usuario {
   position: absolute;
-  top: 0;
+  top: 10px;
   left: 120px;
   font-size: 22px;
 }
 
 #login-email-usuario {
   position: absolute;
-  top: 25px;
-  left: 120px;
+  top: 35px;
+  left: 121px;
   font-size: 16px;
   font-weight: 200;
   color: gray;
@@ -66,20 +81,34 @@ body {
 }
 
 /* BANDEJA DE ICONOS */
+#menu-cambiar-icono-wrap {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+}
 
 #menu-cambiar-icono-container {
   /* ! SACAR MARGIN */
-  margin: 5px;
-  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 320px;
-  height: 155px;
+  height: 167px;
+  margin: 5px;
   border-radius: 6px;
+  background-color: white;
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+  transform: translate(-50%, -50%);
 }
 
 #menu-cambiar-icono-titulo {
   margin: 0;
   padding-top: 5px;
-  padding-bottom: 8px;
+  padding-bottom: 10px;
   text-align: center;
 }
 
@@ -88,6 +117,7 @@ body {
   outline: revert;
   cursor: pointer;
   transition: transform 0.2s linear;
+  margin-bottom: 8px;
 }
 
 .opcion-icono:hover {
