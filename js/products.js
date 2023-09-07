@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+
+  
   const url = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem(
     "catID"
   )}.json`;
@@ -18,6 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const products = data.products;
         spanproducts.innerText = data.catName;
         mostrarArticulos(products);
+        let stringproducts = JSON.stringify(products)
+        sessionStorage.setItem("productsArray", stringproducts)
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -25,26 +30,29 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   obtenerArticulos(url); //Muestra inicial
 
-  //* Actualizar articulos en busqueda, orden y filtro
-  function actualizarArticulos(url) {
+  //* Actualizar articulos en busqueda, orden y filtro. Ya no usa fetch.
+  function actualizarArticulos() {
     eliminarArticulos();
-    obtenerArticulos(url);
+    mostrarArticulos(JSON.parse(sessionStorage.getItem("productsArray")));
   }
   // Busqueda
   document.getElementById("busqueda-input").addEventListener("keyup", () => {
-    actualizarArticulos(url);
+    debounce(()=>{actualizarArticulos();
+    }, 50);
   });
   // Orden
   document.getElementById("orden-productos").addEventListener("mouseup", () => {
-    actualizarArticulos(url);
+    debounce(()=>{actualizarArticulos();
+    }, 50);
   });
   // Filtro
   document.getElementById("filtro-precio-btn").addEventListener("click", () => {
-    actualizarArticulos(url);
+    debounce(()=>{actualizarArticulos();
+    }, 50);
   });
 
   //* Mostrar articulos
-  function mostrarArticulos(prodArr) {
+   function mostrarArticulos(prodArr) {
     ordenarArticulos(prodArr);
     let filteredProdArr = filtrarArticulos(prodArr);
 
@@ -216,6 +224,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     return prodArrFiltrado;
+  }
+
+  /*Básicamete lo que hace es añadir un delay a la función que se elija en el parámetro func
+   porque hay algún evento que es asincrónico o que no espera para ser ejecutado en algún lado del 
+   código. Yo lo uso para actualizar el array de productos. Sin está funcion la actualización
+   se atrasa y causa que esté un input atrás. Es decir, si clickeas A-Z no pasa nada, pero si luego
+   clickeas otra cosa se aplica A-Z*/
+
+   //TODO: probar con internet de la feria para ver si 50ms es suficiente
+
+
+  let debounceTimeout;
+
+  function debounce(func, delay) {
+    clearTimeout(debounceTimeout);
+    debounceTimeout = setTimeout(func, delay);
   }
 });
 
