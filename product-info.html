@@ -5,7 +5,6 @@
     <meta name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>eMercado - Todo lo que busques está aquí</title>
-
     <link
       href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
       rel="stylesheet" />
@@ -14,6 +13,7 @@
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/products.css" rel="stylesheet" />
     <link href="css/categories.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/reviewYcomentarios.css">
   </head>
   <body>
     <div id="contenido">
@@ -91,5 +91,29 @@
       <script src="js/product-info.js"></script>
       <script src="js/mostrarLoginNav.js"></script>
     </div>
+     <div class="comment-box">
+        <div id="comentarios">
+            <h2>Comentarios</h2>
+            <!-- Los comentarios se mostrarán aquí -->
+        </div>
+
+        <h2>Comentar</h2>
+        <p>Tu opinion</p>
+        <textarea id="commentInput" rows="4" cols="30"></textarea>
+        <p>Tu puntuacion</p>
+        <div>
+            <label for="countrySelect">Estrellas: <span id="starRating">0</span></label>
+            <div id="star-rating">
+                <button class="star">&#9734</button>
+                <button class="star">&#9734</button>
+                <button class="star">&#9734</button>
+                <button class="star">&#9734</button>
+                <button class="star">&#9734</button>
+            </div>
+        </div>
+        <body>
+        <button onclick="agregarComentario()" class="boton-enviar-comentarios">Enviar</button>
+    </div>  
   </body>
+  <script src="./js/reviewYcomentarios.js"></script>
 </html>
