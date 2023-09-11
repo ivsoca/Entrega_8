@@ -61,60 +61,62 @@
           <h3 class="subtitlo-producto">Imágenes del Producto</h3>
           <ul class="carrusel-producto" id="carruselProducto"></ul>
         </div>
-      </main>
-      <footer class="text-muted">
-        <div class="container">
-          <p class="float-end">
-            <a href="#">Volver arriba</a>
-          </p>
-          <p>Este sitio forma parte de <a
-              href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a
-              Programar</a></p>
-        </div>
-      </footer>
-      <div id="spinner-wrapper">
-        <div class="lds-ring">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/init.js"></script>
-      <script src="js/loginPopUp.js"></script>
-      <script src="js/product-info.js"></script>
-      <script src="js/loginPopupMenu.js"></script>
-    </div>
-    <div id="loginPopup" class="popup">
-      <div class="popup-content">
-        <p>Debes estar logueado para acceder a este contenido.</p>
-        <button id="loginButton">Iniciar Sesión</button>
-      </div>
-    </div>
-     <div class="comment-box">
-        <div id="comentarios">
+        <div class="comment-box">
+          <div id="comentarios">
             <h2>Comentarios</h2>
             <!-- Los comentarios se mostrarán aquí -->
-        </div>
+          </div>
 
-        <h2>Comentar</h2>
-        <p>Tu opinion</p>
-        <textarea id="commentInput" rows="4" cols="30"></textarea>
-        <p>Tu puntuacion</p>
-        <div>
+          <h2>Comentar</h2>
+          <p>Tu opinion</p>
+          <textarea id="commentInput" rows="4" cols="30"></textarea>
+          <p>Tu puntuacion</p>
+          <div>
             <label for="countrySelect">Estrellas: <span id="starRating">0</span></label>
             <div id="star-rating">
-                <button class="star">&#9734</button>
-                <button class="star">&#9734</button>
-                <button class="star">&#9734</button>
-                <button class="star">&#9734</button>
-                <button class="star">&#9734</button>
+              <button class="star">&#9734</button>
+              <button class="star">&#9734</button>
+              <button class="star">&#9734</button>
+              <button class="star">&#9734</button>
+              <button class="star">&#9734</button>
             </div>
+          </div>
+          <body>
+            <button onclick="agregarComentario()"
+              class="boton-enviar-comentarios">Enviar</button>
+          </div>
+        </main>
+        <footer class="text-muted">
+          <div class="container">
+            <p class="float-end">
+              <a href="#">Volver arriba</a>
+            </p>
+            <p>Este sitio forma parte de <a
+                href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes
+                a
+                Programar</a></p>
+          </div>
+        </footer>
+        <div id="spinner-wrapper">
+          <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
         </div>
-        <body>
-        <button onclick="agregarComentario()" class="boton-enviar-comentarios">Enviar</button>
-    </div>  
-  </body>
-  <script src="./js/reviewYcomentarios.js"></script>
-</html>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/init.js"></script>
+        <script src="js/loginPopUp.js"></script>
+        <script src="js/product-info.js"></script>
+        <script src="js/loginPopupMenu.js"></script>
+      </div>
+      <div id="loginPopup" class="popup">
+        <div class="popup-content">
+          <p>Debes estar logueado para acceder a este contenido.</p>
+          <button id="loginButton">Iniciar Sesión</button>
+        </div>
+      </div>
+    </body>
+    <script src="./js/reviewYcomentarios.js"></script>
+  </html>
