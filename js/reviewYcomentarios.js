@@ -30,6 +30,7 @@ let allStars = document.querySelectorAll('.star');
              //tomamos el mail de localStorage para que aparezca en el div junto a la fecha y el comentario
             let userEmail = localStorage.getItem("email") || "nombre@empresa.com";
             let userName = userEmail.split("@")[0];
+
             //Creo el elemento para que el nombre de usario se ponga en negrita
             let strongElement = document.createElement("strong");
             strongElement.textContent = userName + " - ";
@@ -41,15 +42,22 @@ let allStars = document.querySelectorAll('.star');
 
             // Agregar la fecha y hora junto a las estrellas
             comentarioConEstrellas.appendChild(document.createTextNode(fechaHoraTexto + " - ")); // posible usar para usuario y fecha
-
-        
+   
 
             // Agregar estrellas como caracteres Unicode al div
-            for (let i = 0; i < estrellas; i++) {
-                let estrella = document.createElement("span");
+            for (let i = 0; i < 5; i++) {
+                if(i < estrellas){
+                    let estrella = document.createElement("span");
                 estrella.innerHTML = '&#9733'; // Estrella llena
                 estrella.classList.add("star-comment");
                 comentarioConEstrellas.appendChild(estrella);
+                } else {
+                    let scoreStarText = document.createElement("span");
+                    scoreStarText.innerHTML = '&#9734';
+                    scoreStarText.classList.add("star-comment");
+                    comentarioConEstrellas.appendChild(scoreStarText);
+                }
+                
             }
 
             // Crear un elemento de párrafo para el comentario

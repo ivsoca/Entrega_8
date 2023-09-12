@@ -54,10 +54,14 @@ const cargarComentariosProducto = async (product) => {
 
     for (let i = 0; i < 5; i++) {
       if (i < comment.score) {
-        const scoreStarText = document.createTextNode("★");
+        const scoreStarText = document.createElement("span");
+        scoreStarText.innerHTML = '&#9733';
+        scoreStarText.classList.add("star-comment");
         scoreStar.appendChild(scoreStarText);
       } else {
-        const scoreStarText = document.createTextNode("☆");
+        const scoreStarText = document.createElement("span");
+        scoreStarText.innerHTML = '&#9734';
+        scoreStarText.classList.add("star-comment");
         scoreStar.appendChild(scoreStarText);
       }
     }
