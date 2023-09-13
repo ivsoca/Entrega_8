@@ -7,6 +7,7 @@ const cargarInfoProducto = (product, productCategoryName) => {
   const categoriaProducto = document.getElementById("categoriaProducto");
   const cantidadProducto = document.getElementById("cantidadProducto");
   const carruselProduct = document.getElementById("carruselProducto");
+
   //Pone la info del producto en el lugar correcto del html para verlos
   document.create;
   const nombreProductText = document.createTextNode(product.name);
@@ -22,12 +23,45 @@ const cargarInfoProducto = (product, productCategoryName) => {
   categoriaProducto.appendChild(categoriaProductoText);
   cantidadProducto.appendChild(cantidadProductoText);
   //Muestra las imagenes relacionadas con el producto (son 4 imagenes por producto por eso i=1; i<5)
-  for (let i = 1; i < 5; i++) {
-    const listImageProduct = document.createElement("img");
-    listImageProduct.classList.add("image-producto");
-    listImageProduct.src = `/img/prod${product.id}_${i}.jpg`;
-    carruselProduct.appendChild(listImageProduct);
-  }
+    // Función para cambiar la imagen actual del carrusel
+    let intervalo = false
+
+    function cambiarImagenCarrusel() {
+      let imagenActual = 1; // Inicialmente, muestra la primera imagen
+  
+      return function () {
+        // Elimina todas las imágenes actuales del carrusel
+        carruselProduct.innerHTML = '';
+  
+        // Crea una nueva imagen y la agrega al carrusel
+        const nuevaImagen = document.createElement("img");
+        nuevaImagen.classList.add("image-producto");
+        nuevaImagen.classList.add("card-img-top");
+        nuevaImagen.src = `/img/prod${product.id}_${imagenActual}.jpg`;
+        carruselProduct.appendChild(nuevaImagen);
+  
+        // Incrementa las imagenes y al llegar a la última regresa a la 1ra
+        imagenActual++;
+        if (imagenActual > 4) {
+          imagenActual = 1;
+        }
+      };
+    }
+  
+    // Crea una función para cambiar la imagen
+  
+    const cambiarImagen = cambiarImagenCarrusel();
+  
+  
+    // Intervalo para cambiar automáticamente la imagen cada 3.5 segundos
+    if (!intervalo) {
+      cambiarImagen();
+      intervalo = true
+    }
+  
+    setInterval(() => {
+      cambiarImagen()
+    }, 3500)
 };
 
 const cargarComentariosProducto = async (product) => {
@@ -86,3 +120,4 @@ document.addEventListener("DOMContentLoaded", async () => {
   cargarInfoProducto(product, productCategoryName);
   await cargarComentariosProducto(product);
 });
+
