@@ -5,7 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let userName = userEmail.split("@")[0];
 
   // Cargar foto usuario
-  let fotoUsuario = localStorage.getItem(`${userEmail}-icon`) || "../img/iconos_perfil/foto-login-perfil.png";
+  let fotoUsuario =
+    localStorage.getItem(`${userEmail}-icon`) ||
+    "../img/iconos_perfil/desconocido.png";
 
   // Crear elemento nav
   const loginNavElement = document.createElement("li");
@@ -74,7 +76,9 @@ document.addEventListener("DOMContentLoaded", () => {
   navbar.appendChild(loginNavElement);
   // Mostrar menu si se da click
   loginNavElement.addEventListener("click", (event) => {
-    loginMenu.style.display === "block" ? (loginMenu.style.display = "none") : (loginMenu.style.display = "block");
+    loginMenu.style.display === "block"
+      ? (loginMenu.style.display = "none")
+      : (loginMenu.style.display = "block");
     event.stopPropagation();
   });
   // Esconder menu si se da click afuera
@@ -103,14 +107,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Cambiar foto perfil
-  const contenedorImagenes = document.getElementById("menu-cambiar-icono-opciones");
+  const contenedorImagenes = document.getElementById(
+    "menu-cambiar-icono-opciones"
+  );
   contenedorImagenes.addEventListener("click", (event) => {
     fotoUsuario = event.target.src;
     localStorage.setItem(`${userEmail}-icon`, event.target.src);
     console.log(fotoUsuario);
     location.reload();
-    console.log("TUKI")
-  })
+    console.log("TUKI");
+  });
 
   // LOGOUT
   const logoutBtn = document.getElementById("login-logout-btn");
@@ -118,5 +124,4 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("email");
     location.reload();
   });
-  
 });
