@@ -71,15 +71,23 @@ const cargarComentariosProducto = async (product) => {
   if (!response.ok)
     return console.error("Something went wrong when retrieving the comments");
     const comments = await response.json();
+
     comments.forEach((comment) => {
+
     const divComment = document.createElement("div");
     divComment.classList.add("wrapper-comentario");
+
     const comentarioHeader = document.createElement("p");
     comentarioHeader.classList.add("headerComentario");
+
     divComment.appendChild(comentarioHeader);
+
     const user = document.createElement("span");
     user.classList.add("user-comentario");
+    
     const dateTime = document.createElement("span");
+    dateTime.classList.add("date-time")
+    
     const description = document.createElement("span");
     const userText = document.createTextNode(comment.user);
     const dateTimeText = document.createTextNode(comment.dateTime);
@@ -88,9 +96,9 @@ const cargarComentariosProducto = async (product) => {
 
     //Agregue barras para la separacion del user con las flechas y las estrellas
     //Barra1
-    const BarraSeparacion = document.createElement("span");
-    BarraSeparacion.innerHTML = " - "
-    dateTime.appendChild(BarraSeparacion);
+    // const BarraSeparacion = document.createElement("span");
+    // BarraSeparacion.innerHTML = " - "
+    // dateTime.appendChild(BarraSeparacion);
 
     //Barra2
     const BarraSeparacion2 = document.createElement("span");
@@ -118,8 +126,9 @@ const cargarComentariosProducto = async (product) => {
     description.appendChild(descriptionText);
 
     comentarioHeader.appendChild(user);
-    comentarioHeader.appendChild(dateTime);
     comentarioHeader.appendChild(scoreStar);
+    comentarioHeader.appendChild(dateTime);
+
     divComment.appendChild(descriptionText);
 
     document.getElementById("comentarios").appendChild(divComment);

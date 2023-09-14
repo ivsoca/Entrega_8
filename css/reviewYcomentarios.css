@@ -18,13 +18,14 @@
     border: none;
 }
 
-.comentario-con-estrellas{
+/* No borro esta linea de codigo porque toy haciendo pruebas y si lo borras voy a robarte al michi :) */
+/* .comentario-con-estrellas{
     border: 1px solid rgb(194, 193, 193);
     border-radius: 3px;
     width: 70rem;
     height: 75px;
     overflow-y: auto;
-}
+} */
 
 .tu-clase-de-estilo{
     background-color: #ff9800;
@@ -32,7 +33,7 @@
 
 #datosDeProducto {
     text-align: left;
-    background-color: #ffc8ff71;
+    /* background-color: #ffc8ff71; */
     padding: 10px;
     border-radius: 3%;
     margin-bottom: 2%;
@@ -43,10 +44,14 @@
 }
 
 #comentarios {
-    background-color: #e7c6ffad;
+    /* background-color: #e7c6ffad; */
     margin: 2%;
     border-radius: 4%;
     padding: 1%;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; */
 }
 
 #nuevoComentario {
@@ -64,4 +69,44 @@
 
 .user-comentario {
     font-weight: bold;
+}
+
+.commentInput{
+    border-radius: 6px;
+    width: 40rem;
+    height: 10rem;
+    background-color: #ebebeb;
+    border: none;
+    padding: 5px;
+}
+
+.boton-enviar-comentarios{
+    background-color: antiquewhite;
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    width: 90px;
+    color: white;
+    background-color: #fa7268;
+}
+
+.boton-enviar-comentarios:hover{
+    background-color: #AFC9FF;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.date-time{
+    color: #8e8e8e; 
+    display: flex;  
+}
+
+.wrapper-comentario{ 
+    border: 1px solid rgb(214, 214, 214);
+    margin: 30px;
+    padding: 20px;
+}
+
+.fecha-mis-comentario{
+    color: #8e8e8e;
+    display: flex;
 }
