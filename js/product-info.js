@@ -70,8 +70,8 @@ const cargarComentariosProducto = async (product) => {
   const response = await fetch(baseCommentUrl);
   if (!response.ok)
     return console.error("Something went wrong when retrieving the comments");
-  const comments = await response.json();
-  comments.forEach((comment) => {
+    const comments = await response.json();
+    comments.forEach((comment) => {
     const divComment = document.createElement("div");
     divComment.classList.add("wrapper-comentario");
     const comentarioHeader = document.createElement("p");
