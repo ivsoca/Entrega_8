@@ -78,17 +78,30 @@ const cargarComentariosProducto = async (product) => {
     comentarioHeader.classList.add("headerComentario");
     divComment.appendChild(comentarioHeader);
     const user = document.createElement("span");
+    user.classList.add("user-comentario");
     const dateTime = document.createElement("span");
     const description = document.createElement("span");
-
     const userText = document.createTextNode(comment.user);
     const dateTimeText = document.createTextNode(comment.dateTime);
     const descriptionText = document.createTextNode(comment.description);
     const scoreStar = document.createElement("span");
 
+    //Agregue barras para la separacion del user con las flechas y las estrellas
+    //Barra1
+    const BarraSeparacion = document.createElement("span");
+    BarraSeparacion.innerHTML = " - "
+    dateTime.appendChild(BarraSeparacion);
+
+    //Barra2
+    const BarraSeparacion2 = document.createElement("span");
+    BarraSeparacion2.innerHTML = ' - '
+    scoreStar.appendChild(BarraSeparacion2)
+    
+    //Logica para que aparezcan las estrellas 
     for (let i = 0; i < 5; i++) {
       if (i < comment.score) {
-        const scoreStarText = document.createElement("span");
+        const scoreStarText = document.createElement("span");  
+        scoreStarText.innerHTML = '&#9733';
         scoreStarText.innerHTML = '&#9733';
         scoreStarText.classList.add("star-comment");
         scoreStar.appendChild(scoreStarText);
