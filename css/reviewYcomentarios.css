@@ -101,7 +101,8 @@
 }
 
 .wrapper-comentario{ 
-    border: 1px solid rgb(214, 214, 214);
+    /* border: 1px solid rgb(214, 214, 214); */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     margin: 30px;
     padding: 20px;
 }
