@@ -102,7 +102,7 @@ const cargarComentariosProducto = async (product) => {
 
     //Barra2
     const BarraSeparacion2 = document.createElement("span");
-    BarraSeparacion2.innerHTML = ' - '
+    BarraSeparacion2.innerHTML = ' '
     scoreStar.appendChild(BarraSeparacion2)
     
     //Logica para que aparezcan las estrellas 

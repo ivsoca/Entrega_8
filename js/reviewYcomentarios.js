@@ -41,7 +41,7 @@ let allStars = document.querySelectorAll('.star');
 
             //Creo el elemento span para poder crear mediante una barra "-" una separacion estetica entre el user y las estrellas
             const BarraSeparacionMisComentarios = document.createElement("span");
-            BarraSeparacionMisComentarios.innerHTML = " - "
+            BarraSeparacionMisComentarios.innerHTML = "   "
             comentarioConEstrellas.appendChild(BarraSeparacionMisComentarios);
         
             // Agregar estrellas como caracteres Unicode al div
