@@ -49,12 +49,30 @@
     margin: 2%;
     border-radius: 4%;
     padding: 1%;
-    max-height: 800px; /* Establece la altura máxima deseada */
+    max-height: 800px; 
     overflow-y: auto; /* Agrega una barra de desplazamiento vertical cuando sea necesario */
     padding: 10px; /* Espaciado interior para los comentarios */
+    height: 400px;
+    width: 100%;
     overflow-x: hidden;
+    /* position: relative;s
+    right: 180px; */
+}
+
+#nuevoComentario {
+    margin-left: 3%;
+    margin-bottom: 1%;
     position: relative;
-    right: 180px;
+    top: 68px;
+}
+
+.commentInput{
+    border-radius: 6px;
+    width: 48rem;
+    height: 10rem;
+    background-color: #ebebeb;
+    border: none;
+    padding: 5px;
 }
 
 .comentarios-h2{
@@ -63,18 +81,12 @@
 }
 
 .comentar-h2{
-    padding: 10px;
+    /* padding: 10px; */
     position: relative;
-    right: 10px;
+    bottom: 12px;
 }
 
-#nuevoComentario {
-    margin-left: 3%;
-    margin-bottom: 1%;
-    position: relative;
-    right: 100px;
-    top: 46px;
-}
+
 
 #nombreProduct {
     margin-left: 1%;
@@ -88,21 +100,12 @@
     font-weight: bold;
 }
 
-.commentInput{
-    border-radius: 6px;
-    width: 50rem;
-    height: 10rem;
-    background-color: #ebebeb;
-    border: none;
-    padding: 5px;
-}
-
 .boton-enviar-comentarios{
     background-color: antiquewhite;
     border: none;
     border-radius: 5px;
-    height: 30px;
-    width: 90px;
+    height: 35px;
+    width: 100px;
     color: white;
     background-color: #fa7268;
 }
