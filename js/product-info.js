@@ -39,7 +39,7 @@ const cargarInfoProducto = (product, productCategoryName) => {
         nuevaImagen.classList.add("card-img-top");
         nuevaImagen.src = `/img/prod${product.id}_${imagenActual}.jpg`;
         carruselProduct.appendChild(nuevaImagen);
-  
+        
         // Incrementa las imagenes y al llegar a la última regresa a la 1ra
         imagenActual++;
         if (imagenActual > 4) {
