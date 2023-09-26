@@ -64,7 +64,7 @@ fotoDefaultArray.forEach(element => {
   let iconImg = document.createElement("img")
   iconButton.classList.add("opcion-icono")
   iconButton.setAttribute("data-icon", `./img/iconos_perfil/${element}`);
-  iconImg.src = `../img/iconos_perfil/${element}`;
+  iconImg.src = `./img/iconos_perfil/${element}`;
 
   iconButton.appendChild(iconImg);
 
