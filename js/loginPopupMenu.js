@@ -33,43 +33,48 @@ document.addEventListener("DOMContentLoaded", () => {
   // Crear menu cambio foto perfil
   const fotoPerfilMenu = document.createElement("div");
   fotoPerfilMenu.id = "menu-cambiar-icono-wrap";
-  fotoPerfilMenu.innerHTML = `
-  <div id="menu-cambiar-icono-container">
-    <h2 id="menu-cambiar-icono-titulo">Elije un nuevo icono</h2>
-    <div id="menu-cambiar-icono-opciones">
-      <button class="opcion-icono" data-icon="./img/iconos_perfil/hombre_(1).png">
-        <img src="../img/iconos_perfil/hombre_(1).png" />
-      </button>
-      <button class="opcion-icono" data-icon="./img/iconos_perfil/hombre_(2).png">
-        <img src="../img/iconos_perfil/hombre_(2).png" />
-      </button>
-      <button class="opcion-icono" data-icon="./img/iconos_perfil/hombre_(3).png">
-        <img src="../img/iconos_perfil/hombre_(3).png" />
-      </button>
-      <button class="opcion-icono" data-icon="./img/iconos_perfil/hombre.png">
-        <img src="../img/iconos_perfil/hombre.png" />
-      </button>
-      <button class="opcion-icono" data-icon="./img/iconos_perfil/usuario.png">
-        <img src="../img/iconos_perfil/usuario.png" />
-      </button>
-      <button class="opcion-icono" data-icon="./img/iconos_perfil/mujer_(1).png">
-        <img src="../img/iconos_perfil/mujer_(1).png" />
-      </button>
-      <button class="opcion-icono" data-icon="./img/iconos_perfil/mujer_(2).png">
-        <img src="../img/iconos_perfil/mujer_(2).png" />
-      </button>
-      <button class="opcion-icono" data-icon="./img/iconos_perfil/mujer_(3).png">
-        <img src="../img/iconos_perfil/mujer_(3).png" />
-      </button>
-      <button class="opcion-icono" data-icon="./img/iconos_perfil/mujer.png">
-        <img src="../img/iconos_perfil/mujer.png" />
-      </button>
-      <button class="opcion-icono" data-icon="./img/iconos_perfil/jugador.png">
-        <img src="../img/iconos_perfil/jugador.png" />
-      </button>
-    </div>
-  </div>
-  `;
+
+  let cambiarIconoContainer = document.createElement("div");
+  cambiarIconoContainer.id = "menu-cambiar-icono-container";
+
+  let cambiarIconoTitulo = document.createElement("h2");
+  cambiarIconoTitulo.id = "menu-cambiar-icono-titulo";
+  cambiarIconoTitulo.innerText = "Elije un nuevo icono";
+
+
+  let cambiarIconoOpciones = document.createElement("div");
+  cambiarIconoOpciones.id = "menu-cambiar-icono-opciones";
+
+  cambiarIconoContainer.appendChild(cambiarIconoTitulo);
+  cambiarIconoContainer.appendChild(cambiarIconoOpciones);
+
+fotoPerfilMenu.appendChild(cambiarIconoContainer);
+
+
+
+
+  let fotoDefaultArray = ["hombre_(1).png", "hombre_(2).png", "hombre_(3).png", "hombre.png", "usuario.png", "mujer_(1).png", "mujer_(2).png", "mujer_(3).png", "mujer.png", "jugador.png"];
+
+
+  
+
+
+fotoDefaultArray.forEach(element => {
+  let iconButton = document.createElement("button");
+  let iconImg = document.createElement("img")
+  iconButton.classList.add("opcion-icono")
+  iconButton.setAttribute("data-icon", `./img/iconos_perfil/${element}`);
+  iconImg.src = `./img/iconos_perfil/${element}`;
+
+  iconButton.appendChild(iconImg);
+
+  cambiarIconoOpciones.appendChild(iconButton)
+
+
+});
+
+
+
 
   //* Agregar elemento nav a navbar
   const navbar = document.getElementById("navlist");
