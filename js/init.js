@@ -15,7 +15,7 @@ const hideSpinner = () => {
 //Obtener los productos y categorias del json
 const getJSONData = async (url) => {
   const result = { status: "ok", data: null };
-  showSpinner();
+  
 
   //Se hace un fetch que hace un pedido de informacion
   try {
@@ -31,8 +31,6 @@ const getJSONData = async (url) => {
   } catch (error) {
     result.status = "error";
     result.data = error;
-  } finally {
-    hideSpinner();
   }
 
   return result;
@@ -57,3 +55,16 @@ getJSONData(PUBLISH_PRODUCT_URL)
   .catch((error) => {
     console.error("Error al obtener datos de publicación de productos:", error);
   });
+
+
+  /*
+  esta función permite hacer un array en base a otro array de forma dinámica.
+  La gracia es que nos deja poner un máximo de items en el nuevo array
+  Si el array del que extraemos está vacío retorna 0, de lo contrario sólo empuja elementos al nuevo array
+  */
+  function agregarAlArraySiExiste(sourceArray, newArray, maxelements){
+    if (sourceArray.length>0){
+      for(let i=0; i<maxelements && i<sourceArray.length; i++){
+        newArray.push(sourceArray[i]);
+      }}
+  }

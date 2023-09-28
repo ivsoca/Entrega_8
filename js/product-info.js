@@ -139,7 +139,82 @@ document.addEventListener("DOMContentLoaded", async () => {
   //Se crean const que traen info del localStorage(producto que se clickeo y su nombre de categoria)
   const product = JSON.parse(localStorage.getItem("productoClickeado"));
   const productCategoryName = localStorage.getItem("catName");
-  cargarInfoProducto(product, productCategoryName);
-  await cargarComentariosProducto(product);
+  let catURL = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem("catID" )}.json`;//json con productos de la misma categoria
+  let catData = await getJSONData(catURL);
+  let relatedProductsDiv = document.getElementById("productosSimilares");
+  
+ 
+//bloque para sacar el producto clickeado de productos relacionados para que no se vea dos veces
+let productsMenosElActual = [];
+catData.data.products.forEach(element => {
+  if(element.id !== product.id){
+    productsMenosElActual.push(element)
+  }
 });
+console.log(productsMenosElActual)
+//fin del bloque  
 
+
+cargarInfoProducto(product, productCategoryName);
+  await cargarComentariosProducto(product);
+
+  //hago un fetch similar a el de products.js para conseguir los elementos relacionados
+  
+
+  
+  let showProducts = []; //array de 2 productos relacionados
+  
+  //function en init
+  agregarAlArraySiExiste(productsMenosElActual, showProducts, 3);
+
+    
+    if(showProducts == []){
+      console.log("No hay productos relacionados");
+    }else{
+      console.log(showProducts);
+      showProducts.forEach((element)=>{
+        let colmd = document.createElement("div");
+        colmd.classList.add("col-md-4")
+
+        let productoRelacionado = document.createElement("div");
+        productoRelacionado.classList.add("card");
+        productoRelacionado.classList.add("related-product")
+
+        let productBody = document.createElement("div");
+        productBody.classList.add("card-body")
+
+        let productImg = document.createElement("img");
+        productImg.src = element.image;
+        productImg.className = "card-img-top";
+
+        let productName = document.createElement("h5");
+        productName.classList.add("card-title");
+        productName.textContent = element.name
+        productBody.appendChild(productName);
+        
+
+        let productDescription = document.createElement("p");
+        productDescription.classList.add("card-text");
+        productDescription.textContent = element.description;
+        productBody.appendChild(productDescription);
+
+
+        productoRelacionado.appendChild(productImg);
+        productoRelacionado.appendChild(productBody);
+        colmd.appendChild(productoRelacionado);
+        relatedProductsDiv.appendChild(colmd);
+
+        productoRelacionado.addEventListener("click", ()=>{
+          localStorage.setItem("productoClickeado", JSON.stringify(element));
+        window.location = "product-info.html";
+        })
+      })
+    }
+  
+
+
+  
+  
+
+
+});
