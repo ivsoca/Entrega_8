@@ -18,3 +18,8 @@
     margin: auto;
     place-items: center;
 }
+
+.related-product :hover{
+    cursor: pointer;
+
+}

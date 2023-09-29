@@ -130,4 +130,7 @@
     color: #8e8e8e;
 }
 
+.related-product :hover{
+    cursor: pointer;
 
+}
