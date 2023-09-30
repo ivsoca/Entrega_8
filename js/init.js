@@ -58,13 +58,21 @@ getJSONData(PUBLISH_PRODUCT_URL)
 
 
   /*
-  esta función permite hacer un array en base a otro array de forma dinámica.
-  La gracia es que nos deja poner un máximo de items en el nuevo array
-  Si el array del que extraemos está vacío retorna 0, de lo contrario sólo empuja elementos al nuevo array
+  Esta funcion la hice porque necesitaba una forma de mostrar 3 productos recomendados en la parte de abajo de una pagina y me parecio util
+  tenerla acá para futuros usos. Lo que hace es que agarra un sourceArray que seguramente tenga varios datos y agrega
+  datos aleatorios de ese array a un nuevo array (en el caso original vacio pero puede tener items previos).
+  placeholderArray se crea en la funcion y es una copia del sourceArray, la diferencia es que se le quitan los items ya seleccionados
+  para evitar que aparezcan dos veces, así no afecta el sourceArray en caso de que se vaya a usar dsp para otra cosa
   */
-  function agregarAlArraySiExiste(sourceArray, newArray, maxelements){
+  function agregarAlArraySiExiste(sourceArray, newArray, maxElements){
     if (sourceArray.length>0){
-      for(let i=0; i<maxelements && i<sourceArray.length; i++){
-        newArray.push(sourceArray[i]);
-      }}
+      let placeholderArray = [...sourceArray];
+      for(let i=0; i<maxElements && i<sourceArray.length; i++){
+        let randomNumber = Math.floor(Math.random()*placeholderArray.length);
+        newArray.push(placeholderArray[randomNumber]);
+        placeholderArray.splice(randomNumber, 1);
+      }
+
+      
+    }
   }
