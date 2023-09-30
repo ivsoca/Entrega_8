@@ -141,6 +141,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const productCategoryName = localStorage.getItem("catName");
   let catURL = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem("catID" )}.json`;//json con productos de la misma categoria
   let catData = await getJSONData(catURL);
+  let productURL = `https://japceibal.github.io/emercado-api/products/${product.id}.json`
+  let productfetch = await getJSONData(productURL);
   let relatedProductsDiv = document.getElementById("productosSimilares");
   
  
@@ -151,7 +153,7 @@ catData.data.products.forEach(element => {
     productsMenosElActual.push(element)
   }
 });
-console.log(productsMenosElActual)
+//console.log(productsMenosElActual)
 //fin del bloque  
 
 
@@ -162,10 +164,11 @@ cargarInfoProducto(product, productCategoryName);
   
 
   
-  let showProducts = []; //array de 2 productos relacionados
+  let showProducts = [...productfetch.data.relatedProducts]; //array de 2 productos relacionados
+  console.log(productfetch.data.relatedProducts)
   
   //function en init
-  agregarAlArraySiExiste(productsMenosElActual, showProducts, 3);
+  
 
     
     if(showProducts == []){
@@ -174,7 +177,7 @@ cargarInfoProducto(product, productCategoryName);
       console.log(showProducts);
       showProducts.forEach((element)=>{
         let colmd = document.createElement("div");
-        colmd.classList.add("col-md-4")
+        colmd.classList.add("col-md-6")
 
         let productoRelacionado = document.createElement("div");
         productoRelacionado.classList.add("card");
