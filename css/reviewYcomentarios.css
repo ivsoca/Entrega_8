@@ -51,7 +51,7 @@
     border-radius: 4%;
     padding: 1%;
     max-height: 800px; 
-    overflow-y: auto; /* Agrega una barra de desplazamiento vertical cuando sea necesario */
+    /* overflow-y: auto;  */
     padding: 10px; /* Espaciado interior para los comentarios */
     height: 400px;
     width: 100%;
@@ -64,8 +64,8 @@
 #nuevoComentario {
     margin-left: 3%;
     margin-bottom: 1%;
-    position: relative;
-    top: 68px;
+    /* position: relative;
+    top: 68px; */
 }
 
 /* Caja donde uno escribe el comentario */
@@ -76,6 +76,7 @@
     background-color: #ebebeb;
     border: none;
     padding: 5px;
+   
 }
 
 .comentarios-h2{
@@ -139,10 +140,11 @@
 }
 
 .comment-box {
-    display: flex;
+    margin-right: 50px;
+    /* display: flex;
     flex-direction: row-reverse;
     justify-content: flex-end;
-    justify-content:space-evenly;
+    justify-content:space-evenly; */
 }
 
 .related-product :hover{
