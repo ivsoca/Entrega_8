@@ -142,6 +142,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     "catID"
   )}.json`; //json con productos de la misma categoria
   let catData = await getJSONData(catURL);
+  let productURL = `https://japceibal.github.io/emercado-api/products/${product.id}.json`;
+  let productfetch = await getJSONData(productURL);
   let relatedProductsDiv = document.getElementById("productosSimilares");
 
   //bloque para sacar el producto clickeado de productos relacionados para que no se vea dos veces
@@ -151,7 +153,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       productsMenosElActual.push(element);
     }
   });
-  console.log(productsMenosElActual);
+  // console.log(productsMenosElActual);
   //fin del bloque
 
   cargarInfoProducto(product, productCategoryName);
@@ -159,10 +161,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   //hago un fetch similar a el de products.js para conseguir los elementos relacionados
 
-  let showProducts = []; //array de 2 productos relacionados
+  let showProducts = [...productfetch.data.relatedProducts]; //array de 2 productos relacionados
+  console.log(productfetch.data.relatedProducts);
 
   //function en init
-  agregarAlArraySiExiste(productsMenosElActual, showProducts, 3);
 
   if (showProducts == []) {
     console.log("No hay productos relacionados");
@@ -170,7 +172,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log(showProducts);
     showProducts.forEach((element) => {
       let colmd = document.createElement("div");
-      colmd.classList.add("col-md-4");
+      colmd.classList.add("col-md-6");
 
       let productoRelacionado = document.createElement("div");
       productoRelacionado.classList.add("card");
