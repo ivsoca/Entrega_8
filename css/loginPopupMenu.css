@@ -128,8 +128,14 @@
   margin: 0 5px;
   width: 50px;
 }
-
-#btn-edti-perfil {
-  text-decoration: none;
-  color: black;
+.modoOscuroBtn {
+  position: absolute;
+    top: 2px;
+    left: 260px;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-image: url(../img/modo-oscuro.png);
+    background-size: cover;
 }
