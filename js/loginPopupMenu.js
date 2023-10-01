@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <button id="login-cambiar-icono-btn"><i class="fa fa-pencil-alt"></i></button>
     <h2 id="login-nombre-usuario">${userName}</h2>
     <h3 id="login-email-usuario">${userEmail}</h3>
-    <button id="login-edit-perfil-btn">Editar Perfil</button>
+    <button id="login-edit-perfil-btn"><a href="my-profile.html" id="btn-edti-perfil">Editar Perfil<a></button>
     <button id="login-logout-btn">Log Out</button>
   `;
 
