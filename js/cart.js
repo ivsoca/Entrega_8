@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-// Crear elemento nav
+// Crear elemento nav que contiene todo el HTML de la caja del carrito de compras
 const cartNavElement = document.createElement("li");
 cartNavElement.innerHTML = `
     <div class="container">
@@ -14,6 +14,9 @@ cartNavElement.innerHTML = `
                     <nav id="backtomenu" class="menu">
                         <ul id="shopContent" class="shoppContent" >
                             <li><a href="cart.html">Ir al carrito</a></li>
+                            <li class="calculos-carrito">Subtotal</li>
+                            <li class="calculos-carrito">Descuentos</li>
+                            <li class="calculos-carrito">Total</li>
                         </ul>
                     </nav>
                 <button id="ir-a-checkout" class="boton-producto box-botonpr">
