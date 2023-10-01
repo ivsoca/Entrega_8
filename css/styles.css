@@ -61,6 +61,10 @@
   color: #fcfcfc;
 }
 
+#modo-oscuro .mo-texto-negro {
+  color: black !important;
+} 
+
 
 .pb-5 {
   padding-bottom: 20px !important;

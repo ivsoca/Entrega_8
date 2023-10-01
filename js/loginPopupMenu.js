@@ -26,8 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
     <button id="login-cambiar-icono-btn"><i class="fa fa-pencil-alt"></i></button>
     <h2 id="login-nombre-usuario">${userName}</h2>
     <h3 id="login-email-usuario">${userEmail}</h3>
-    <button id="login-edit-perfil-btn">Editar Perfil</button>
-    <button id="login-logout-btn">Log Out</button>
+    <button id="login-edit-perfil-btn"><a class="mo-texto-negro" href="my-profile.html" id="btn-edit-perfil">Editar Perfil<a></button>
+    <button id="mi-carrito-btn"><a class="mo-texto-negro" href="cart.html" id="btn-mi-carrito">Mi carrito<a></button>
+    <button id="login-logout-btn">Salir</button>
     <button id="btn-oscuro" class="modoOscuroBtn"></button>
   `;
 
