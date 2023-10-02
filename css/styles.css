@@ -419,7 +419,23 @@ main {
   margin-top: 25px;
 }
 
-/* filtro de categories.js que se encarga de crearlo y eliminarlo dependiendo de la condicion */
 .filtro {
   display: none !important;
+}
+
+.img-encabezado-perfil{
+  background-image: url(../img/perfil_banner.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 160px;
+  padding-left: 10%;
+  margin-top: 48px;
+}
+.img-encabezado-vender{
+  background-image: url(../img/banner_categories_sell.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 160px;
+  padding-left: 10%;
+  margin-top: 48px;
 }
