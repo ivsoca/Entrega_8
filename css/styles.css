@@ -24,7 +24,7 @@
   background-color: #ffffffe9;
 }
 #modo-oscuro .img-encabezado{
-  background-image: url(../img/banner_categories_products_modoOscuro.jpg);
+  background-image: url(../img/banner_categories_products.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   height: 160px;
@@ -89,9 +89,15 @@
 .pb-5 {
   padding-bottom: 20px !important;
 }
-
+.img-encabezado-products {
+  background-image: url(../img/banner_categories_productos.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 160px;
+  padding-left: 10%;
+}
 .img-encabezado {
-  background-image: url(../img/banner_categories_products.png);
+  background-image: url(../img/banner_categories_products.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   height: 160px;
