@@ -65,6 +65,26 @@
   color: black !important;
 } 
 
+.carrusel-container ul{
+  padding: unset;
+  margin: unset;
+}
+.carrusel-container{
+  position: relative;
+  min-height: 423px;
+  height: 100%;
+}
+.banner{
+  opacity: 0;
+  transition: all 1s ease-out;
+  position: absolute;
+}
+
+.banner-active{
+  opacity: 1;
+  transition: all 1s ease-out;
+  position: absolute;
+}
 
 .pb-5 {
   padding-bottom: 20px !important;
