@@ -75,6 +75,7 @@
   height: 100%;
 }
 .banner{
+  margin-top: 40px;
   opacity: 0;
   transition: all 1s ease-out;
   position: absolute;
@@ -205,6 +206,9 @@
   font-size: 38px;
 }
 
+.row{
+  margin-top: 2% !important;
+}
 .navbar {
   padding: 10px 20px;
   position: fixed;
