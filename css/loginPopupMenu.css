@@ -26,7 +26,7 @@ el elemento se sale de vista en la pantalla */
 /* Login popup menu */
 #login-menu-container {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 48px;
   right: 8%;
   width: 300px;
