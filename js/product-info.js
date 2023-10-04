@@ -145,6 +145,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   let productURL = `https://japceibal.github.io/emercado-api/products/${product.id}.json`;
   let productfetch = await getJSONData(productURL);
   let relatedProductsDiv = document.getElementById("productosSimilares");
+  let agregarButton = document.getElementById("agregarAlCarritoButton");
 
   //bloque para sacar el producto clickeado de productos relacionados para que no se vea dos veces
   let productsMenosElActual = [];
@@ -215,4 +216,24 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     });
   }
+
+  //acá agrega el producto comprado al localstorage
+  agregarButton.addEventListener("click", async ()=>{
+    if(!localStorage.getItem("productosCarrito")){
+      let productosCarritoArray = [];
+      productosCarritoArray.push(product.id);
+      let stringProductosCarritoArray = JSON.stringify(productosCarritoArray);
+      localStorage.setItem("productosCarrito", stringProductosCarritoArray);
+    }else{
+      let productosCarritoArray = JSON.parse(await localStorage.getItem("productosCarrito"))
+      if(productosCarritoArray.includes(product.id)){
+        console.log("ya estaba")
+      }else{
+        console.log("no estaba");
+        productosCarritoArray.push(product.id);
+        let stringProductosCarritoArray = JSON.stringify(productosCarritoArray);
+        localStorage.setItem("productosCarrito", stringProductosCarritoArray);
+      }
+    }
+  })
 });
