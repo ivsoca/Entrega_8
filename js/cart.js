@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     <nav id="backtomenu" class="menu">
                         <ul id="shopContent" class="shoppContent" >
                             <li><a href="cart.html">Ir al carrito</a></li>
-                            <li class="calculos-carrito">Subtotal</li>
-                            <li class="calculos-carrito">Descuentos</li>
-                            <li class="calculos-carrito">Total</li>
+                            <li id="subtotal"class="calculos-carrito">Subtotal</li>
+                            <li id="descuentos" class="calculos-carrito">Descuentos</li>
+                            <li id="total" class="calculos-carrito">Total</li>
                         </ul>
                     </nav>
                 <button id="ir-a-checkout" class="boton-producto box-botonpr">
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
 `;
   cartNavElement.classList.add("nav-item");
-  cartNavElement.id = "login-nav-li";
+  cartNavElement.id = "cart-nav-li";
 
   //* Agregar elemento nav a navbar
   const navbar = document.getElementById("navlist");
