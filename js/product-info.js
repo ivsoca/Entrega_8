@@ -22,45 +22,46 @@ const cargarInfoProducto = (product, productCategoryName) => {
   descripcionProducto.appendChild(descripcionProductoText);
   categoriaProducto.appendChild(categoriaProductoText);
   cantidadProducto.appendChild(cantidadProductoText);
+  
   //Muestra las imagenes relacionadas con el producto (son 4 imagenes por producto por eso i=1; i<5)
   // Función para cambiar la imagen actual del carrusel
-  let intervalo = false;
+  // let intervalo = false;
 
-  function cambiarImagenCarrusel() {
-    let imagenActual = 1; // Inicialmente, muestra la primera imagen
+  // function cambiarImagenCarrusel() {
+  //   let imagenActual = 1; // Inicialmente, muestra la primera imagen
 
-    return function () {
-      // Elimina todas las imágenes actuales del carrusel
-      carruselProduct.innerHTML = "";
+  //   return function () {
+  //     // Elimina todas las imágenes actuales del carrusel
+  //     carruselProduct.innerHTML = "";
 
-      // Crea una nueva imagen y la agrega al carrusel
-      const nuevaImagen = document.createElement("img");
-      nuevaImagen.classList.add("image-producto");
-      nuevaImagen.classList.add("card-img-top");
-      nuevaImagen.src = `./img/prod${product.id}_${imagenActual}.jpg`;
-      carruselProduct.appendChild(nuevaImagen);
+  //     // Crea una nueva imagen y la agrega al carrusel
+  //     const nuevaImagen = document.createElement("img");
+  //     nuevaImagen.classList.add("image-producto");
+  //     nuevaImagen.classList.add("card-img-top");
+  //     nuevaImagen.src = `./img/prod${product.id}_${imagenActual}.jpg`;
+  //     carruselProduct.appendChild(nuevaImagen);
 
-      // Incrementa las imagenes y al llegar a la última regresa a la 1ra
-      imagenActual++;
-      if (imagenActual > 4) {
-        imagenActual = 1;
-      }
-    };
-  }
+  //     // Incrementa las imagenes y al llegar a la última regresa a la 1ra
+  //     imagenActual++;
+  //     if (imagenActual > 4) {
+  //       imagenActual = 1;
+  //     }
+  //   };
+  // }
 
-  // Crea una función para cambiar la imagen
+  // // Crea una función para cambiar la imagen
 
-  const cambiarImagen = cambiarImagenCarrusel();
+  // const cambiarImagen = cambiarImagenCarrusel();
 
-  // Intervalo para cambiar automáticamente la imagen cada 3.5 segundos
-  if (!intervalo) {
-    cambiarImagen();
-    intervalo = true;
-  }
+  // // Intervalo para cambiar automáticamente la imagen cada 3.5 segundos
+  // if (!intervalo) {
+  //   cambiarImagen();
+  //   intervalo = true;
+  // }
 
-  setInterval(() => {
-    cambiarImagen();
-  }, 3500);
+  // setInterval(() => {
+  //   cambiarImagen();
+  // }, 3500);
 };
 
 //Carrusel-slide
@@ -171,9 +172,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   //Carrusel-slide, logica para que el carrusel con las flechas funcione
   let imgCarousel = document.getElementsByClassName("carouselimg");
   
-  for(let i = 0; i<imgCarousel.length; i++){
+  for(let i = 0; i < imgCarousel.length; i++){
     imgCarousel[i].src = `./img/prod${product.id}_${i+1}.jpg`
-    console.log('hola')
   }
 
   //bloque para sacar el producto clickeado de productos relacionados para que no se vea dos veces
