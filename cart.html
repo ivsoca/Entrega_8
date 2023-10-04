@@ -75,7 +75,7 @@
                 <td id="cost"></td>
                 <td><input id="cantidad" class="form-control" type="number"
                     min="1" value="1" style="margin-left: 0px;"></td>
-                <td class="subtotal"></td>
+                <td class="subtotal" id="subtotal"></td>
               </tr>
             </tbody>
           </table>
@@ -113,33 +113,6 @@
               <label class="form-label" for="esquina">Esquina:</label><br>
               <input class="form-control" type="text" id="esquina"
                 style="min-width: 80%" required />
-            </div>
-          </div>
-          <hr>
-
-          <p class="label-costos">Costos</p>
-          <div class="list-group">
-            <div class="list-group-item">
-              <div class="row-cols-11 d-flex justify-content-between">
-                <p class="mb-0"> Subtotal</p>
-                <p class="subtotal">USD </p>
-              </div>
-              <span class="text-muted mb-3">Costo unitario del producto por
-                cantidad</span>
-            </div>
-            <div class="list-group-item">
-              <div class="row-cols-11 d-flex justify-content-between">
-                <p class="mb-0"> Costo de envio</p>
-                <p id="costoEnvio">USD </p>
-              </div>
-              <span class="text-muted mb-3">Segun el tipo de envio</span>
-            </div>
-
-            <div class="list-group-item">
-              <div class="row-cols-11 d-flex justify-content-between">
-                <p class="mb-1"> Total ($)</p>
-                <strong id="total">USD </strong>
-              </div>
             </div>
           </div>
           <hr>
