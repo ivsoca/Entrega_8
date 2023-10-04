@@ -33,3 +33,41 @@ document.addEventListener("DOMContentLoaded", () => {
   const navbar = document.getElementById("navlist");
   navbar.appendChild(cartNavElement);
 });
+
+const cart_URL_base = "https://japceibal.github.io/emercado-api/user_cart/";
+const cart_pre_hecho = cart_URL_base + "25801" + EXT_TYPE;
+const imagen_producto = document.getElementById("imagen");
+const nombre_producto = document.getElementById("name");
+const precio_producto = document.getElementById("cost");
+const cantidad = document.getElementById("cantidad");
+const subtotal = document.getElementById("subtotal");
+const total_compra = document.getElementById("total");
+let cart_productos = [];
+let subtotal_precio = 0;
+
+document.addEventListener("DOMContentLoaded", function (e) {
+  getJSONData(cart_pre_hecho).then(function (resultObj) {
+    if (resultObj.status === "ok") {
+      cart_productos = resultObj.data.articles;
+      subtotal_precio = cart_productos[0].unitCost;
+      showCart();
+    }
+  });
+  cantidad.addEventListener("change", showCart);
+});
+
+function showCart() {
+  let { name, unitCost, currency, image } = cart_productos[0];
+
+  imagen_producto.innerHTML = `<img src="${image}" >`;
+  nombre_producto.innerHTML = `${name}`;
+  precio_producto.innerHTML = `${currency} ${unitCost}`;
+  console.log({
+    unitCost,
+    cantidad,
+    typeC: typeof cantidad,
+    typeu: typeof unitCost,
+  });
+  subtotal.innerHTML =
+    currency + " " + parseInt(unitCost) * parseInt(cantidad.value);
+}
