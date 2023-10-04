@@ -46,18 +46,14 @@
 
 /* Caja donde se encuentran los comentarios */
 #comentarios {
-    /* background-color: #e7c6ffad; */
     margin: 2%;
     border-radius: 4%;
     padding: 1%;
     max-height: 800px; 
-    /* overflow-y: auto;  */
-    padding: 10px; /* Espaciado interior para los comentarios */
+    padding: 10px; 
     height: 400px;
     width: 100%;
     overflow-x: hidden;
-    /* position: relative;s
-    right: 180px; */
 }
 
 /* Toda la caja con respecto a escribir el comentario */

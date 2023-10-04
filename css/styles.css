@@ -440,3 +440,34 @@ main {
   padding-left: 10%;
   margin-top: 48px;
 }
+/* #carouselExampleDark {
+    max-width: 1000px; 
+    height: 1400px;    
+} */
+
+.carousel-inner{
+  position: relative;
+  left: 20px;
+}
+
+.containerCarrusel{
+  width: 800px;
+  position: relative;
+  left: 60rem;
+  bottom: 460px;
+}
+
+#contenido{
+  height: 700px;
+}
+
+.carousel-control-prev-icon{
+  position: relative;
+  top:220px;
+}
+
+.carousel-control-next-icon{
+  position: relative;
+  top:220px;
+}
+
