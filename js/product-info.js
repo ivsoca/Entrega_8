@@ -63,6 +63,28 @@ const cargarInfoProducto = (product, productCategoryName) => {
   }, 3500);
 };
 
+//Carrusel-slide
+
+// const carouselInner = document.querySelector('.carousel-inner');
+
+// data.forEach((item, index) => {
+//   const carouselItem = document.createElement('div');
+//   carouselItem.classList.add('carousel-item');
+//   if (index === 0) {
+//     carouselItem.classList.add('active');
+//   }
+
+//   const img = document.createElement('img');
+//   img.src =  item.url; // Asigna la URL de la imagen desde los datos de la API
+//   img.classList.add('d-block', 'w-100');
+//   img.alt = '...'; // Puedes asignar una descripción alternativa aquí si es necesario
+
+//   carouselItem.appendChild(img);
+//   carouselInner.appendChild(carouselItem);
+// });
+
+
+
 const cargarComentariosProducto = async (product) => {
   if (!product.id) return console.error("the product doesn't have an id");
   const baseCommentUrl = `https://raw.githubusercontent.com/JaPCeibal/emercado-api/main/products_comments/${product.id}.json`;
@@ -145,6 +167,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   let productURL = `https://japceibal.github.io/emercado-api/products/${product.id}.json`;
   let productfetch = await getJSONData(productURL);
   let relatedProductsDiv = document.getElementById("productosSimilares");
+
+  //Carrusel-slide, logica para que el carrusel con las flechas funcione
+  let imgCarousel = document.getElementsByClassName("carouselimg");
+  
+  for(let i = 0; i<imgCarousel.length; i++){
+    imgCarousel[i].src = `./img/prod${product.id}_${i+1}.jpg`
+    console.log('hola')
+  }
 
   //bloque para sacar el producto clickeado de productos relacionados para que no se vea dos veces
   let productsMenosElActual = [];
