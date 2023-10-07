@@ -113,9 +113,10 @@
 }
 
 #img-cart{
+    width: 100px;
     max-width: 100%;
 }
-#cantidad{
+.cantidad{
     max-width: 20%;
 }
 
