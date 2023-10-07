@@ -68,22 +68,14 @@
                 <th scope="col">Subtotal</th>
               </tr>
             </thead>
-            <tbody>
-              <tr id="producto-compra">
-                <td id="imagen" style="width: 100px"></td>
-                <td id="name"></td>
-                <td id="cost"></td>
-                <td><input id="cantidad" class="form-control" type="number"
-                    min="1" value="1" style="margin-left: 0px;"></td>
-                <td class="subtotal" id="subtotal"></td>
-              </tr>
+            <tbody id="lista-productos-compra">
             </tbody>
           </table>
         </div>
 
         <hr>
         <form class="needs-validation" novalidate>
-          <p class="label-envio">Tipo de envio</p>
+          <p class="label-envio titulo-cart">Tipo de envio</p>
           <div class="tipoEnvio">
             <input type="radio" id="premium" name="envio" value="15" checked />
             <label for="premium">Premium: 2 a 5 días (15%)</label>
@@ -95,7 +87,7 @@
             <label for="standard">Standard: 12 a 15 días (5%)</label>
           </div>
 
-          <p class="lead mt-4">Direccion de envio</p>
+          <p class="lead mt-4 titulo-cart">Direccion de envio</p>
           <div class="row">
             <div class="col-lg-6 col-md-12 col-sm-12 mt-2">
               <label class="form-label" for="calle">Calle:</label><br>

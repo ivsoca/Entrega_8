@@ -17,9 +17,16 @@
 #modo-oscuro {
   background-color: #000000;
 }
+#modo-oscuro label {
+  color: white;
+}
+#modo-oscuro .titulo-cart{
+  color: #afc9ff;
+}
 #modo-oscuro .texto-modo-oscuro{
   color: white;
 }
+
 #modo-oscuro .fondo-modo-oscuro{
   background-color: #ffffffe9;
 }
@@ -29,6 +36,18 @@
   background-repeat: no-repeat;
   height: 160px;
   padding-left: 10%;
+}
+
+#modo-oscuro hr{
+  background-color: white;
+}
+
+#modo-oscuro td{
+  background-color:  #aab4ff;
+}
+
+#modo-oscuro thead{
+  color: white;
 }
 
 #modo-oscuro .product-item{
@@ -71,8 +90,8 @@
 }
 .carrusel-container{
   position: relative;
-  min-height: 423px;
-  height: 100%;
+height: 423px;
+
 }
 .banner{
   margin-top: 40px;
@@ -235,7 +254,7 @@ footer {
 }
 
 footer p {
-  margin-bottom: 0.25rem;
+  margin-bottom: .25rem;
 }
 
 .site-header a {
@@ -457,9 +476,6 @@ main {
   bottom: 460px;
 }
 
-#contenido{
-  height: 700px;
-}
 
 .carousel-control-prev-icon{
   position: relative;

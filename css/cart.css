@@ -111,10 +111,18 @@
     padding-left: 10%;
     margin-top: 48px;
 }
-footer{
-    margin-top: 200px;
-    margin-bottom: 0%;
+
+#img-cart{
+    width: 100px;
+    max-width: 100%;
 }
-#finalizarCompra {
-    margin-top: 450px;
+.cantidad{
+    max-width: 20%;
 }
+
+#producto-compra{
+    background-color:  #aab4ff;
+}
+ tbody{
+    border-color: black;
+ }

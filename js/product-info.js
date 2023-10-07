@@ -22,7 +22,7 @@ const cargarInfoProducto = (product, productCategoryName) => {
   descripcionProducto.appendChild(descripcionProductoText);
   categoriaProducto.appendChild(categoriaProductoText);
   cantidadProducto.appendChild(cantidadProductoText);
-  
+
   //Muestra las imagenes relacionadas con el producto (son 4 imagenes por producto por eso i=1; i<5)
   // Función para cambiar la imagen actual del carrusel
   // let intervalo = false;
@@ -83,8 +83,6 @@ const cargarInfoProducto = (product, productCategoryName) => {
 //   carouselItem.appendChild(img);
 //   carouselInner.appendChild(carouselItem);
 // });
-
-
 
 const cargarComentariosProducto = async (product) => {
   if (!product.id) return console.error("the product doesn't have an id");
@@ -172,9 +170,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   //Carrusel-slide, logica para que el carrusel con las flechas funcione
   let imgCarousel = document.getElementsByClassName("carouselimg");
-  
-  for(let i = 0; i < imgCarousel.length; i++){
-    imgCarousel[i].src = `./img/prod${product.id}_${i+1}.jpg`
+
+  for (let i = 0; i < imgCarousel.length; i++) {
+    imgCarousel[i].src = `./img/prod${product.id}_${i + 1}.jpg`;
   }
 
   //bloque para sacar el producto clickeado de productos relacionados para que no se vea dos veces
@@ -248,22 +246,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   //acá agrega el producto comprado al localstorage
-  agregarButton.addEventListener("click", async ()=>{
-    if(!localStorage.getItem("productosCarrito")){
-      let productosCarritoArray = [];
-      productosCarritoArray.push(product.id);
-      let stringProductosCarritoArray = JSON.stringify(productosCarritoArray);
-      localStorage.setItem("productosCarrito", stringProductosCarritoArray);
-    }else{
-      let productosCarritoArray = JSON.parse(await localStorage.getItem("productosCarrito"))
-      if(productosCarritoArray.includes(product.id)){
-        console.log("ya estaba")
-      }else{
-        console.log("no estaba");
-        productosCarritoArray.push(product.id);
-        let stringProductosCarritoArray = JSON.stringify(productosCarritoArray);
-        localStorage.setItem("productosCarrito", stringProductosCarritoArray);
-      }
-    }
-  })
+  agregarButton.addEventListener("click", async () => {
+    let productosCarrito =
+      JSON.parse(localStorage.getItem("productosCarrito")) || {};
+    const productId = product.id;
+    productosCarrito = { ...productosCarrito, [productId]: product };
+    console.log(productosCarrito, product);
+    localStorage.setItem("productosCarrito", JSON.stringify(productosCarrito));
+  });
 });
