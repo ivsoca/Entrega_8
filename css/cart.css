@@ -126,3 +126,7 @@
  tbody{
     border-color: black;
  }
+
+#lista-producto{
+    overflow: auto;
+}
