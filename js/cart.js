@@ -76,6 +76,8 @@ const cart_pre_hecho = cart_URL_base + "25801" + EXT_TYPE;
 //   cantidad?.addEventListener("change", actualizarSubtotal());
 // });
 
+
+
 async function showCart() {
   const productosCarrito =
     JSON.parse(localStorage.getItem("productosCarrito")) || [];
@@ -83,6 +85,7 @@ async function showCart() {
     "lista-productos-compra"
   );
   productosCarrito.forEach(async (elementid) =>{
+
     let productoURL = `https://japceibal.github.io/emercado-api/products/${elementid}.json`
     let productoFetch = await getJSONData(productoURL);
     let producto = productoFetch.data
@@ -154,13 +157,15 @@ function loadProductIds() {
   const productosCarrito =
     JSON.parse(localStorage.getItem("productosCarrito")) || {};
 
-  Object.values(productosCarrito).forEach((product) => {
-    productIds.push(`${product.id}-cantidad`);
+  productosCarrito.forEach((elementId) => {
+    productIds.push(`${elementId}-cantidad`);
+    console.log(productIds)
   });
 }
 document.addEventListener("click", function (e) {
   if (e.target && productIds.includes(e.target.id)) {
-    actualizarSubtotal(e.target.id);
+    actualizarSubtotal(e.target.id.slice(0, e.target.id.indexOf("-")));
+    console.log(e.target.id)
   }
 });
 
@@ -168,7 +173,7 @@ function actualizarSubtotal(id) {
   const subtotal = document.getElementById(`${id}-subtotal`);
   const cantidad = document.getElementById(`${id}-cantidad`);
   const costo = document.getElementById(`${id}-costo`);
-  const costoValue = costo.value;
+  const costoValue = costo.innerHTML.slice(costo.innerHTML.indexOf(" "));
   const currency = subtotal.innerHTML.slice(0, subtotal.innerHTML.indexOf(" "));
   const textoSubtotal = document.createTextNode(
     currency + " " + cantidad.value * costoValue
