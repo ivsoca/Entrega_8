@@ -147,3 +147,10 @@
     cursor: pointer;
 
 }
+
+
+@media (min-width: 1440px) {
+    #datosDeProducto{
+        height: 420px;
+    }
+   }

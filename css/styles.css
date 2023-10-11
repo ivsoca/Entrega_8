@@ -462,6 +462,9 @@ main {
   top:220px;
 }
  */
+.carouselimg{
+  padding-right: 36px;
+}
 
  .carru-cont{
   display: flex;
@@ -472,3 +475,21 @@ main {
   padding-top:2%;
  }
 
+
+ @media (min-width: 1440px) {
+  .carouselimg{
+    height: 600px;
+}
+ }
+
+@media (max-width: 769px) {
+  /* Ajusta el tamaño de las imágenes para pantallas más grandes */
+  .carru-cont{
+    display: flex;
+    width: 63%;
+    flex-wrap: wrap;
+    /* margin: 10px; */
+    margin-top: 5%;
+    padding-top:2%;
+   }
+}
