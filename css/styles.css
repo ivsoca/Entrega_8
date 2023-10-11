@@ -479,12 +479,15 @@ main {
  @media (min-width: 1540px) {
   .carouselimg{
     height: 600px;
+    object-fit: cover;
 }
  }
 
  @media (min-width:1540px) and (max-width: 1669px) {
   .carouselimg{
     height: 510px;
+    object-fit: cover;
+
 }
  }
 
