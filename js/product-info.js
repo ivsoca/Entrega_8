@@ -248,10 +248,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   //acá agrega el producto comprado al localstorage
   agregarButton.addEventListener("click", async () => {
     let productosCarrito =
-      JSON.parse(localStorage.getItem("productosCarrito")) || {};
+      JSON.parse(localStorage.getItem("productosCarrito")) || [];
     const productId = product.id;
-    productosCarrito = { ...productosCarrito, [productId]: product };
-    console.log(productosCarrito, product);
+    //productosCarrito = [...productosCarrito, productId];
+    //console.log(productosCarrito, product);
+    if (!productosCarrito.includes(productId)){
+      productosCarrito.push(productId)
+    }
     localStorage.setItem("productosCarrito", JSON.stringify(productosCarrito));
   });
 });
