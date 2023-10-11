@@ -482,7 +482,19 @@ main {
 }
  }
 
-@media (max-width: 769px) {
+@media (max-width: 768px) {
+  /* Ajusta el tamaño de las imágenes para pantallas más grandes */
+  .carru-cont{
+    display: flex;
+    width: 63%;
+    flex-wrap: wrap;
+    /* margin: 10px; */
+    margin-top: 5%;
+    padding-top:2%;
+   }
+}
+
+@media (max-width: 1024px) {
   /* Ajusta el tamaño de las imágenes para pantallas más grandes */
   .carru-cont{
     display: flex;
