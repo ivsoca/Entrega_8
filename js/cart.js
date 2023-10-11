@@ -160,7 +160,7 @@ function loadProductIds() {
 }
 document.addEventListener("click", function (e) {
   if (e.target && productIds.includes(e.target.id)) {
-    actualizarSubtotal(e.target.id.slice(0, e.target.id.indexOf("-")));
+    actualizarSubtotal(e.target.id);
   }
 });
 
@@ -168,7 +168,7 @@ function actualizarSubtotal(id) {
   const subtotal = document.getElementById(`${id}-subtotal`);
   const cantidad = document.getElementById(`${id}-cantidad`);
   const costo = document.getElementById(`${id}-costo`);
-  const costoValue = costo.innerHTML.slice(costo.innerHTML.indexOf(" "));
+  const costoValue = costo.value;
   const currency = subtotal.innerHTML.slice(0, subtotal.innerHTML.indexOf(" "));
   const textoSubtotal = document.createTextNode(
     currency + " " + cantidad.value * costoValue
