@@ -40,6 +40,13 @@ el elemento se sale de vista en la pantalla */
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.2);
 }
 
+@media screen and (max-width: 995px) {
+  #login-menu-container {
+    left: 50px;
+    top: 245px;
+  }
+}
+
 #login-foto-perfil-usuario {
   position: absolute;
   margin-top: 10px;
