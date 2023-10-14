@@ -65,26 +65,26 @@
   color: black !important;
 } 
 
-.carrusel-container ul{
-  padding: unset;
-  margin: unset;
-}
 .carrusel-container{
-  position: relative;
-  min-height: 423px;
-  height: 100%;
+  padding-top: 48px;
 }
+.carrusel-container ul{
+  padding: 0;
+  margin: 0;
+}
+.carrusel-container ul li{
+  padding: 0;
+  margin: 0;
+}
+
 .banner{
-  margin-top: 40px;
-  opacity: 0;
+  display: none;
   transition: all 1s ease-out;
-  position: absolute;
 }
 
 .banner-active{
-  opacity: 1;
+  display: block;
   transition: all 1s ease-out;
-  position: absolute;
 }
 
 .pb-5 {
@@ -210,11 +210,11 @@
   margin-top: 2% !important;
 }
 .navbar {
-  padding: 10px 20px;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
+  padding: 10px 20px;
+  z-index: 10;
 }
 
 nav a {
@@ -370,6 +370,7 @@ main {
 }
 
 #contenido {
+  height: 100vh;
   pointer-events: all;
 }
 
@@ -465,16 +466,6 @@ main {
 .carouselimg{
   padding-right: 36px;
 }
-
- .carru-cont{
-  display: flex;
-  width: 63%;
-  /* flex-wrap: wrap; */
-  /* margin: 10px; */
-  margin-top: 5%;
-  padding-top:2%;
- }
-
 
  @media (min-width: 1540px) {
   .carouselimg{
