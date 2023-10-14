@@ -370,7 +370,6 @@ main {
 }
 
 #contenido {
-  height: 100vh;
   pointer-events: all;
 }
 
