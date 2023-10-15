@@ -62,9 +62,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   fillSidebarCart("lista-producto");
   loadProductIds();
   radioEnvio.addEventListener("click", ()=>{
-    actualizarTotal();
+    
   })
 });
+
+window.addEventListener("load", actualizarTotal());
 
 const cart_URL_base = "https://japceibal.github.io/emercado-api/user_cart/";
 const cart_pre_hecho = cart_URL_base + "25801" + EXT_TYPE;
