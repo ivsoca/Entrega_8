@@ -132,6 +132,13 @@ el elemento se sale de vista en la pantalla */
   transform: translate(-50%, -50%);
 }
 
+@media screen and (max-width: 995px) {
+  #menu-cambiar-icono-container {
+    left: 200px;
+    top: 545px;
+  }
+}
+
 #menu-cambiar-icono-titulo {
   margin: 0;
   padding-top: 5px;
