@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
+  let radioEnvio = document.getElementById("formEnvio")
   // Crear elemento nav que contiene todo el HTML de la caja del carrito de compras
   const cartNavElement = document.createElement("li");
   cartNavElement.innerHTML = `
@@ -36,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     "agregarAlCarritoButton"
   );
   if (agregarAlCarritoButton) {
-    agregarAlCarritoButton.addEventListener("click", fillSidebarCart);
+    agregarAlCarritoButton.addEventListener("click", fillSidebarCart());
   }
   getJSONData(cart_pre_hecho).then(function (resultObj) {
     if (resultObj.status === "ok") {
@@ -54,12 +55,21 @@ document.addEventListener("DOMContentLoaded", async () => {
       
       // cart_productos = resultObj.data.articles;
       // subtotal_precio = cart_productos[0].unitCost;
-      showCart();
+      showCart()
+      .then(actualizarTotal())
     }
   });
   fillSidebarCart("lista-producto");
   loadProductIds();
+
+  setTimeout(() => actualizarTotal(), 500);
+  
+  radioEnvio.addEventListener("click", ()=>{
+    console.log("click")
+    actualizarTotal()
+  })
 });
+
 
 const cart_URL_base = "https://japceibal.github.io/emercado-api/user_cart/";
 const cart_pre_hecho = cart_URL_base + "25801" + EXT_TYPE;
@@ -166,6 +176,7 @@ document.addEventListener("click", function (e) {
   if (e.target && productIds.includes(e.target.id)) {
     actualizarSubtotal(e.target.id.slice(0, e.target.id.indexOf("-")));
     console.log(e.target.id)
+    actualizarTotal();
   }
 });
 
@@ -211,4 +222,66 @@ async function fillSidebarCart(idListElement) {
   });
   const subtotalText = document.createTextNode(await subTotalSidebarAmount);
   subtotalSidebar.appendChild(subtotalText);
+}
+
+
+function actualizarGranSubtotal(){
+  const spanSubtotal = document.getElementById("spanGranSubtotal");
+  //productosCarrito debería estar en DOMContentLoaded pero si lo saco de acá se rompe otra funcion :p
+  const productosCarrito =
+    JSON.parse(localStorage.getItem("productosCarrito")) || [];
+  let total = 0;
+  
+
+  productosCarrito.forEach((id)=>{
+    
+    const subtotal = document.getElementById(`${id}-subtotal`);
+    const subtotalString = subtotal.textContent
+    let subtotalNumero = parseFloat(subtotalString.split(' ')[1]);
+
+    if(subtotalString.split(' ')[0] == "UYU"){
+      subtotalNumero /= 40
+      subtotalNumero = Math.round(subtotalNumero)
+      console.log(subtotalNumero)
+    }
+
+    total += subtotalNumero;
+    spanSubtotal.textContent = "USD " + total
+  })
+  return total
+}
+
+async function actualizarImpuesto(){
+  let granSubtotal = await actualizarGranSubtotal();
+  console.log(granSubtotal)
+  let spanEnvio = document.getElementById("spanCostoDeEnvio");
+  let tipoEnvio = document.getElementsByName("envio");
+  
+  let porcentaje;
+  for (let i = 0; i< tipoEnvio.length; i++){
+    if (tipoEnvio[i].checked){
+      checkedNumber = parseFloat(tipoEnvio[i].value);
+      porcentaje = checkedNumber/100
+      
+    }
+  }
+  totalEnvio = Math.round(granSubtotal*porcentaje);
+
+  spanEnvio.textContent = "USD " + totalEnvio;
+
+  return totalEnvio;
+
+}
+
+async function actualizarTotal(){
+
+  let subtotal = await actualizarGranSubtotal();
+  let impuesto = await actualizarImpuesto();
+
+  let spanTotal = document.getElementById("spanTotal");
+
+  let total = subtotal+impuesto
+
+  spanTotal.textContent = "USD " + total
+
 }

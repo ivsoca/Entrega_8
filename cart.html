@@ -74,7 +74,7 @@
         </div>
 
         <hr>
-        <form class="needs-validation" novalidate>
+        <form class="needs-validation" novalidate id="formEnvio">
           <p class="label-envio titulo-cart">Tipo de envio</p>
           <div class="tipoEnvio">
             <input type="radio" id="premium" name="envio" value="15" checked />
@@ -114,7 +114,27 @@
           </div>
           <br>
           <br>
-
+          <ul>
+            <li>
+              <div>
+                <h4>Subtotal: <span id="spanGranSubtotal"></span></h4>
+                <p>El precio de los productos sin envio</p>
+              </div>
+            </li>
+            <li> 
+              <div>
+                <h4>Costo de envio: <span id="spanCostoDeEnvio"></span></h4>
+                <p>El precio del envío</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <h4>Total: <span id="spanTotal"></span></h4>
+                <p>El precio total de los productos más el envío</p>
+              </div>
+            </li>
+          </ul>
+          
           <button id="finalizarCompra" type="submit" class="btn btn-primary">
             Finalizar compra</button>
           <div id="alertPlaceHolder">
