@@ -126,7 +126,11 @@
  tbody{
     border-color: black;
  }
-
-#lista-producto{
+ #backtomenu {
+    height: 600px;
+  }
+  #lista-producto{ 
+    width: 200px;
+    height: 400px;
     overflow: auto;
-}
+  }

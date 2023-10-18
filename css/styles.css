@@ -17,16 +17,9 @@
 #modo-oscuro {
   background-color: #000000;
 }
-#modo-oscuro label {
-  color: white;
-}
-#modo-oscuro .titulo-cart{
-  color: #afc9ff;
-}
 #modo-oscuro .texto-modo-oscuro{
   color: white;
 }
-
 #modo-oscuro .fondo-modo-oscuro{
   background-color: #ffffffe9;
 }
@@ -36,18 +29,6 @@
   background-repeat: no-repeat;
   height: 160px;
   padding-left: 10%;
-}
-
-#modo-oscuro hr{
-  background-color: white;
-}
-
-#modo-oscuro td{
-  background-color:  #aab4ff;
-}
-
-#modo-oscuro thead{
-  color: white;
 }
 
 #modo-oscuro .product-item{
@@ -84,26 +65,26 @@
   color: black !important;
 } 
 
-.carrusel-container ul{
-  padding: unset;
-  margin: unset;
-}
 .carrusel-container{
-  position: relative;
-height: 423px;
-
+  padding-top: 48px;
 }
+.carrusel-container ul{
+  padding: 0;
+  margin: 0;
+}
+.carrusel-container ul li{
+  padding: 0;
+  margin: 0;
+}
+
 .banner{
-  margin-top: 40px;
-  opacity: 0;
+  display: none;
   transition: all 1s ease-out;
-  position: absolute;
 }
 
 .banner-active{
-  opacity: 1;
+  display: block;
   transition: all 1s ease-out;
-  position: absolute;
 }
 
 .pb-5 {
@@ -227,7 +208,6 @@ height: 423px;
 
 .row{
   margin-top: 2% !important;
-  padding-top: 20px;
 }
 .navbar {
   padding: 10px 20px;
@@ -254,7 +234,7 @@ footer {
 }
 
 footer p {
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
 
 .site-header a {
@@ -439,26 +419,11 @@ main {
   margin-top: 25px;
 }
 
+/* filtro de categories.js que se encarga de crearlo y eliminarlo dependiendo de la condicion */
 .filtro {
   display: none !important;
 }
 
-.img-encabezado-perfil{
-  background-image: url(../img/perfil_banner.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 160px;
-  padding-left: 10%;
-  margin-top: 48px;
-}
-.img-encabezado-vender{
-  background-image: url(../img/banner_categories_sell.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 160px;
-  padding-left: 10%;
-  margin-top: 48px;
-}
 /* #carouselExampleDark {
     max-width: 1000px; 
     height: 1400px;    
@@ -469,13 +434,23 @@ main {
   left: 20px;
 }
 
-.containerCarrusel{
+/* .containerCarrusel{
   width: 800px;
   position: relative;
   left: 60rem;
   bottom: 460px;
-}
+} */
 
+/* .containerCarrusel{
+  width: 800px;
+  position: relative;
+  left: 60rem;
+  bottom: 460px;
+} */
+
+/* #contenido{
+  height: 700px;
+}
 
 .carousel-control-prev-icon{
   position: relative;
@@ -486,16 +461,62 @@ main {
   position: relative;
   top:220px;
 }
-
-
-/*
-esto es loq cambie
  */
-#backtomenu {
-  height: 600px;
+.carouselimg{
+  padding-right: 36px;
 }
-#lista-producto{ 
-  width: 200px;
-  height: 400px;
-  overflow: auto;
+
+ .carru-cont{
+  display: flex;
+  width: 63%;
+  /* flex-wrap: wrap; */
+  /* margin: 10px; */
+  margin-top: 5%;
+  padding-top:2%;
+ }
+
+
+ @media (min-width: 1540px) {
+  .carouselimg{
+    height: 600px;
+    object-fit: cover;
+}
+ }
+
+ @media (min-width:1540px) and (max-width: 1669px) {
+  .carouselimg{
+    height: 510px;
+    object-fit: cover;
+
+}
+ }
+
+
+
+@media (max-width: 768px) {
+  /* Ajusta el tamaño de las imágenes para pantallas más grandes */
+  .carru-cont{
+    display: flex;
+    width: 63%;
+    flex-wrap: wrap;
+    /* margin: 10px; */
+    margin-top: 5%;
+    padding-top:2%;
+   }
+}
+
+@media (max-width: 1024px) {
+  /* Ajusta el tamaño de las imágenes para pantallas más grandes */
+  .carru-cont{
+    display: flex;
+    /* width: 63%; */
+    flex-wrap: wrap;
+    /* margin: 10px; */
+    margin-top: 5%;
+    padding-top:2%;
+   }
+}
+
+.productos-relacionados{
+  padding-bottom: 20px;
 }
