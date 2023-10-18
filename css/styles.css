@@ -221,6 +221,12 @@ nav a {
   text-decoration: none;
 }
 
+.navbar ul {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50px;
+}
+
 .navbar ul li {
   cursor: pointer;
 }
