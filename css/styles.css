@@ -210,11 +210,11 @@
   margin-top: 2% !important;
 }
 .navbar {
+  padding: 10px 20px;
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 10px 20px;
-  z-index: 10;
+  z-index: 1000;
 }
 
 nav a {
@@ -465,6 +465,16 @@ main {
 .carouselimg{
   padding-right: 36px;
 }
+
+ .carru-cont{
+  display: flex;
+  width: 63%;
+  /* flex-wrap: wrap; */
+  /* margin: 10px; */
+  margin-top: 5%;
+  padding-top:2%;
+ }
+
 
  @media (min-width: 1540px) {
   .carouselimg{
