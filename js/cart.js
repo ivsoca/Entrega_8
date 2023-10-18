@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     "agregarAlCarritoButton"
   );
   if (agregarAlCarritoButton) {
-    agregarAlCarritoButton.addEventListener("click", fillSidebarCart);
+    agregarAlCarritoButton.addEventListener("click", fillSidebarCart());
   }
   getJSONData(cart_pre_hecho).then(function (resultObj) {
     if (resultObj.status === "ok") {
@@ -61,12 +61,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
   fillSidebarCart("lista-producto");
   loadProductIds();
+
+  setTimeout(() => actualizarTotal(), 500);
+  
   radioEnvio.addEventListener("click", ()=>{
-    
+    console.log("click")
+    actualizarTotal()
   })
 });
 
-window.addEventListener("load", actualizarTotal());
 
 const cart_URL_base = "https://japceibal.github.io/emercado-api/user_cart/";
 const cart_pre_hecho = cart_URL_base + "25801" + EXT_TYPE;
