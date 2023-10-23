@@ -77,13 +77,13 @@
         <form class="needs-validation" novalidate id="formEnvio">
           <p class="label-envio titulo-cart">Tipo de envio</p>
           <div class="tipoEnvio">
-            <input type="radio" id="premium" name="envio" value="15" checked />
+            <input type="radio" id="premium" name="envio" value="15" />
             <label for="premium">Premium: 2 a 5 días (15%)</label>
             <br>
             <input type="radio" id="express" name="envio" value="7" />
             <label for="express">Express: 5 a 8 días (7%)</label>
             <br>
-            <input type="radio" id="standard" name="envio" value="5" />
+            <input type="radio" id="standard" name="envio" value="5" checked />
             <label for="standard">Standard: 12 a 15 días (5%)</label>
           </div>
 
@@ -100,7 +100,7 @@
             <br>
             <div class="col-lg-6 col-md-12 col-sm-12 mt-2">
               <label class="form-label" for="numero">Numero:</label><br>
-              <input class="form-control" type="text" id="numero"
+              <input class="form-control" type="number" id="numero"
                 style="min-width: 50%;" required />
                 <div class="invalid-feedback">
                   Por favor, ingrese un número de puerta.
