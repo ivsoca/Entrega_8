@@ -285,3 +285,33 @@ async function actualizarTotal(){
   spanTotal.textContent = "USD " + total
 
 }
+
+//Validación del contenido del formulario de envío 
+document.addEventListener("DOMContentLoaded", ()=>{
+  const forms = document.querySelectorAll('.needs-validation')
+  let alertaSuccess = document.createElement('div');
+
+  // Hace un bucle del contenido del form
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      //Si el formulario no esta validado se detiene el envío de la información
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      } else {
+      //Si el formulario esta completo se envía una alerta de compra realizada con éxito
+        alertaSuccess.classList.add('alert', 'alert-success', 'mt-3');
+        alertaSuccess.textContent = '¡Has comprado con éxito!';
+        document.body.appendChild(alertaSuccess);
+
+        // Cierra la alerta después de 3 segundos
+        setTimeout(function() {
+        alertaSuccess.remove();
+        }, 3000);
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  });
+
+});
