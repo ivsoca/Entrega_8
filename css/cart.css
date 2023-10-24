@@ -131,11 +131,16 @@
  #backtomenu {
     height: 600px;
   }
-  #lista-producto{ 
+#lista-producto{ 
     width: 200px;
     height: 400px;
     overflow: auto;
   }
+.row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .balance {
     display: flex;
     flex-direction: column;
