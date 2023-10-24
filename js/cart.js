@@ -287,21 +287,24 @@ async function actualizarTotal(){
 }
 
 //Validación del contenido del formulario de envío 
-document.addEventListener("DOMContentLoaded", () => {
-  const forms = document.querySelectorAll('.needs-validation');
-
+document.addEventListener("DOMContentLoaded", ()=>{
+  const forms = document.querySelectorAll('.needs-validation')
+  
   // Hace un bucle del contenido del form
   Array.from(forms).forEach(form => {
     form.addEventListener('submit', event => {
+      //Si el formulario no esta validado se detiene el envío de la información
       if (!form.checkValidity()) {
         event.preventDefault()
         event.stopPropagation()
-      } else (form.checkValidity()) // Si el formulario está completo, marca el indicador de formulario enviado
-      {
+      } else {
         sessionStorage.setItem('formSubmitted', 'true');
       }
-    })
+
+      form.classList.add('was-validated')
+    }, false)
   });
+
   // Verifica si el formulario fue enviado previamente
   const formSubmitted = sessionStorage.getItem('formSubmitted');
   if (formSubmitted) {
@@ -320,4 +323,3 @@ document.addEventListener("DOMContentLoaded", () => {
     sessionStorage.removeItem('formSubmitted');
   }
 });
-
