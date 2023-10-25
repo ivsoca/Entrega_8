@@ -131,21 +131,49 @@ async function showCart() {
 
     const tableDataSubtotal = document.createElement("td");
     tableDataSubtotal.id = `${producto.id}-subtotal`;
-    const tableDataSubtotalText = document.createTextNode(
-      producto.currency +
-        " " +
-        parseInt(productoCosto) * parseInt(tableDataCantidadInput.value)
-    );
+    const tableDataSubtotalText = document.createTextNode(producto.currency + " " + parseInt(productoCosto) * parseInt(tableDataCantidadInput.value));
+
     tableDataSubtotal.appendChild(tableDataSubtotalText);
 
+    //Agregando el bote de basura
+    const tableDataBasura = document.createElement("td");
+    const boteBasuraIcon = document.createElement("i");
+    boteBasuraIcon.classList.add('fa-trash');
+    boteBasuraIcon.classList.add('fa');
+    boteBasuraIcon.id = `${producto.id}-boteBasuraIcon`;
+
+    tableDataBasura.appendChild(boteBasuraIcon);
+
+    //Se appendea los datos para que aparezcan en el html
     tableRow.appendChild(tableDataImage);
     tableRow.appendChild(tableDataNombre);
     tableRow.appendChild(tableDataCosto);
     tableRow.appendChild(tableDataCantidad);
     tableRow.appendChild(tableDataSubtotal);
+    tableRow.appendChild(tableDataBasura);
 
     listaProductosCompra.appendChild(tableRow);
-    //
+    
+      //Funcionalidad del boton de bote de basura
+      let boteBasura = document.getElementById(`${producto.id}-boteBasuraIcon`);
+
+      boteBasura.addEventListener('click', async () => {
+        let productosCarrito = await JSON.parse(localStorage.getItem('productosCarrito'));
+      
+        let index = productosCarrito.indexOf(producto.id);
+        if (index !== -1) {
+          productosCarrito.splice(index, 1);
+      
+          localStorage.setItem('productosCarrito', JSON.stringify(productosCarrito));
+      
+          tableRow.remove();
+        } else {
+          // Handle the case where producto.id is not found in productosCarrito
+          console.log(`${producto.id} not found in productosCarrito`);
+        }
+      });
+
+
   });
   // let { name, unitCost, currency, image } = cart_productos[0];
   // if (imagen_producto) {
@@ -179,6 +207,8 @@ document.addEventListener("click", function (e) {
     actualizarTotal();
   }
 });
+
+
 
 function actualizarSubtotal(id) {
   const subtotal = document.getElementById(`${id}-subtotal`);
