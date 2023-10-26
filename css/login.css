@@ -25,7 +25,6 @@ body{
 
     width: 450px;
     height: 550px;
-    background:#b895cb70;
     position: absolute;
     top: 52%;
     right: 55%;
@@ -137,11 +136,11 @@ input[type=number]::-webkit-outer-spin-button {
     .formulario_login {
         width: 450px;
         height: 550px;
-        background: rgba(184, 149, 203, 0.7);
+        background: rgba(184, 149, 203, 0.355);
         position: absolute;
         top: 52%;
-        right: 55%;
-        transform: translate(-50%, -50%);
+        right: 50%;
+        transform: translate(-40%, -50%);
         box-sizing: border-box;
         padding: 70px 30px;
         opacity: 0.9;
@@ -152,13 +151,13 @@ input[type=number]::-webkit-outer-spin-button {
     @keyframes loginAnim {
         from {
             top: 52%;
-            transform: translate(-50%, -50%);
+            transform: translate(-40%, -50%);
             right: 100%;
         }
         to {
             top: 52%;
-            right: 55%;
-            transform: translate(-50%, -50%);
+            right: 50%;
+            transform: translate(-40%, -50%);
         }
     }
 }

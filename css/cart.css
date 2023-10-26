@@ -117,7 +117,8 @@
     max-width: 100%;
 }
 .cantidad{
-    max-width: 20%;
+ margin-left: 40%;
+    max-width: 25%;
 }
 
 #producto-compra{
