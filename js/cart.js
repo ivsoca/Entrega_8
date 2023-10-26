@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  let radioEnvio = document.getElementById("formEnvio")
+  let radioEnvio = document.getElementById("formEnvio");
   // Crear elemento nav que contiene todo el HTML de la caja del carrito de compras
   const cartNavElement = document.createElement("li");
   cartNavElement.innerHTML = `
@@ -43,33 +43,29 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (resultObj.status === "ok") {
       let productos =
         JSON.parse(localStorage.getItem("productosCarrito")) || [];
-      resultObj.data.articles.forEach(element => {
-        if (!productos.includes(element.id)){
-          productos.push(element.id)
+      resultObj.data.articles.forEach((element) => {
+        if (!productos.includes(element.id)) {
+          productos.push(element.id);
         }
       });
       //productos = { ...productos, [productoId]: resultObj.data.articles[0] };
       localStorage.setItem("productosCarrito", JSON.stringify(productos));
-      
-      
-      
+
       // cart_productos = resultObj.data.articles;
       // subtotal_precio = cart_productos[0].unitCost;
-      showCart()
-      .then(actualizarTotal())
+      showCart().then(actualizarTotal());
     }
   });
   fillSidebarCart("lista-producto");
   loadProductIds();
 
   setTimeout(() => actualizarTotal(), 500);
-  
-  radioEnvio.addEventListener("click", ()=>{
-    console.log("click")
-    actualizarTotal()
-  })
-});
 
+  radioEnvio.addEventListener("click", () => {
+    console.log("click");
+    actualizarTotal();
+  });
+});
 
 const cart_URL_base = "https://japceibal.github.io/emercado-api/user_cart/";
 const cart_pre_hecho = cart_URL_base + "25801" + EXT_TYPE;
@@ -86,19 +82,16 @@ const cart_pre_hecho = cart_URL_base + "25801" + EXT_TYPE;
 //   cantidad?.addEventListener("change", actualizarSubtotal());
 // });
 
-
-
 async function showCart() {
   const productosCarrito =
     JSON.parse(localStorage.getItem("productosCarrito")) || [];
   const listaProductosCompra = document.getElementById(
     "lista-productos-compra"
   );
-  productosCarrito.forEach(async (elementid) =>{
-
-    let productoURL = `https://japceibal.github.io/emercado-api/products/${elementid}.json`
+  productosCarrito.forEach(async (elementid) => {
+    let productoURL = `https://japceibal.github.io/emercado-api/products/${elementid}.json`;
     let productoFetch = await getJSONData(productoURL);
-    let producto = productoFetch.data
+    let producto = productoFetch.data;
 
     const tableRow = document.createElement("tr");
     const tableDataImage = document.createElement("td");
@@ -131,15 +124,19 @@ async function showCart() {
 
     const tableDataSubtotal = document.createElement("td");
     tableDataSubtotal.id = `${producto.id}-subtotal`;
-    const tableDataSubtotalText = document.createTextNode(producto.currency + " " + parseInt(productoCosto) * parseInt(tableDataCantidadInput.value));
+    const tableDataSubtotalText = document.createTextNode(
+      producto.currency +
+        " " +
+        parseInt(productoCosto) * parseInt(tableDataCantidadInput.value)
+    );
 
     tableDataSubtotal.appendChild(tableDataSubtotalText);
 
     //Agregando el bote de basura
     const tableDataBasura = document.createElement("td");
     const boteBasuraIcon = document.createElement("i");
-    boteBasuraIcon.classList.add('fa-trash');
-    boteBasuraIcon.classList.add('fa');
+    boteBasuraIcon.classList.add("fa-trash");
+    boteBasuraIcon.classList.add("fa");
     boteBasuraIcon.id = `${producto.id}-boteBasuraIcon`;
 
     tableDataBasura.appendChild(boteBasuraIcon);
@@ -153,28 +150,32 @@ async function showCart() {
     tableRow.appendChild(tableDataBasura);
 
     listaProductosCompra.appendChild(tableRow);
-    
-      //Funcionalidad del boton de bote de basura
-      let boteBasura = document.getElementById(`${producto.id}-boteBasuraIcon`);
 
-      boteBasura.addEventListener('click', async () => {
-        let productosCarrito = await JSON.parse(localStorage.getItem('productosCarrito'));
-      
-        let index = productosCarrito.indexOf(producto.id);
-        if (index !== -1) {
-          productosCarrito.splice(index, 1);
-      
-          localStorage.setItem('productosCarrito', JSON.stringify(productosCarrito));
-      
-          tableRow.remove();
-        } else {
-          // Handle the case where producto.id is not found in productosCarrito
-          console.log(`${producto.id} not found in productosCarrito`);
-        }
-      });
+    //Funcionalidad del boton de bote de basura
+    let boteBasura = document.getElementById(`${producto.id}-boteBasuraIcon`);
 
+    boteBasura.addEventListener("click", async () => {
+      let productosCarrito = await JSON.parse(
+        localStorage.getItem("productosCarrito")
+      );
 
+      let index = productosCarrito.indexOf(producto.id);
+      if (index !== -1) {
+        productosCarrito.splice(index, 1);
+
+        localStorage.setItem(
+          "productosCarrito",
+          JSON.stringify(productosCarrito)
+        );
+
+        tableRow.remove();
+      } else {
+        // Handle the case where producto.id is not found in productosCarrito
+        console.log(`${producto.id} not found in productosCarrito`);
+      }
+    });
   });
+
   // let { name, unitCost, currency, image } = cart_productos[0];
   // if (imagen_producto) {
   //   imagen_producto.innerHTML = `<img id=img-cart src="${image}" >`;
@@ -190,6 +191,7 @@ async function showCart() {
   //     currency + " " + parseInt(unitCost) * parseInt(cantidad.value);
   // }
 }
+
 const productIds = [];
 function loadProductIds() {
   const productosCarrito =
@@ -197,18 +199,16 @@ function loadProductIds() {
 
   productosCarrito.forEach((elementId) => {
     productIds.push(`${elementId}-cantidad`);
-    console.log(productIds)
+    console.log(productIds);
   });
 }
 document.addEventListener("click", function (e) {
   if (e.target && productIds.includes(e.target.id)) {
     actualizarSubtotal(e.target.id.slice(0, e.target.id.indexOf("-")));
-    console.log(e.target.id)
+    console.log(e.target.id);
     actualizarTotal();
   }
 });
-
-
 
 function actualizarSubtotal(id) {
   const subtotal = document.getElementById(`${id}-subtotal`);
@@ -233,9 +233,9 @@ async function fillSidebarCart(idListElement) {
   sidebarUl.innerHTML = "";
   let subTotalSidebarAmount = 0;
   productosCarrito.forEach(async (elementid) => {
-    let productoURL = `https://japceibal.github.io/emercado-api/products/${elementid}.json`
+    let productoURL = `https://japceibal.github.io/emercado-api/products/${elementid}.json`;
     let productoFetch = await getJSONData(productoURL);
-    let producto = productoFetch.data
+    let producto = productoFetch.data;
     const liElement = document.createElement("li");
     const imgProduct = document.createElement("img");
     imgProduct.src = producto.images[0];
@@ -254,102 +254,99 @@ async function fillSidebarCart(idListElement) {
   subtotalSidebar.appendChild(subtotalText);
 }
 
-
-function actualizarGranSubtotal(){
+function actualizarGranSubtotal() {
   const spanSubtotal = document.getElementById("spanGranSubtotal");
   //productosCarrito debería estar en DOMContentLoaded pero si lo saco de acá se rompe otra funcion :p
   const productosCarrito =
     JSON.parse(localStorage.getItem("productosCarrito")) || [];
   let total = 0;
-  
 
-  productosCarrito.forEach((id)=>{
-    
+  productosCarrito.forEach((id) => {
     const subtotal = document.getElementById(`${id}-subtotal`);
-    const subtotalString = subtotal.textContent
-    let subtotalNumero = parseFloat(subtotalString.split(' ')[1]);
+    const subtotalString = subtotal.textContent;
+    let subtotalNumero = parseFloat(subtotalString.split(" ")[1]);
 
-    if(subtotalString.split(' ')[0] == "UYU"){
-      subtotalNumero /= 40
-      subtotalNumero = Math.round(subtotalNumero)
-      console.log(subtotalNumero)
+    if (subtotalString.split(" ")[0] == "UYU") {
+      subtotalNumero /= 40;
+      subtotalNumero = Math.round(subtotalNumero);
+      console.log(subtotalNumero);
     }
 
     total += subtotalNumero;
-    spanSubtotal.textContent = "USD " + total
-  })
-  return total
+    spanSubtotal.textContent = "USD " + total;
+  });
+  return total;
 }
 
-async function actualizarImpuesto(){
+async function actualizarImpuesto() {
   let granSubtotal = await actualizarGranSubtotal();
-  console.log(granSubtotal)
+  console.log(granSubtotal);
   let spanEnvio = document.getElementById("spanCostoDeEnvio");
   let tipoEnvio = document.getElementsByName("envio");
-  
+
   let porcentaje;
-  for (let i = 0; i< tipoEnvio.length; i++){
-    if (tipoEnvio[i].checked){
+  for (let i = 0; i < tipoEnvio.length; i++) {
+    if (tipoEnvio[i].checked) {
       checkedNumber = parseFloat(tipoEnvio[i].value);
-      porcentaje = checkedNumber/100
-      
+      porcentaje = checkedNumber / 100;
     }
   }
-  totalEnvio = Math.round(granSubtotal*porcentaje);
+  totalEnvio = Math.round(granSubtotal * porcentaje);
 
   spanEnvio.textContent = "USD " + totalEnvio;
 
   return totalEnvio;
-
 }
 
-async function actualizarTotal(){
-
+async function actualizarTotal() {
   let subtotal = await actualizarGranSubtotal();
   let impuesto = await actualizarImpuesto();
 
   let spanTotal = document.getElementById("spanTotal");
 
-  let total = subtotal+impuesto
+  let total = subtotal + impuesto;
 
-  spanTotal.textContent = "USD " + total
-
+  spanTotal.textContent = "USD " + total;
 }
 
-//Validación del contenido del formulario de envío 
-document.addEventListener("DOMContentLoaded", ()=>{
-  const forms = document.querySelectorAll('.needs-validation')
-  
-  // Hace un bucle del contenido del form
-  Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      //Si el formulario no esta validado se detiene el envío de la información
-      if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-      } else {
-        sessionStorage.setItem('formSubmitted', 'true');
-      }
+//Validación del contenido del formulario de envío
+document.addEventListener("DOMContentLoaded", () => {
+  const forms = document.querySelectorAll(".needs-validation");
 
-      form.classList.add('was-validated')
-    }, false)
+  // Hace un bucle del contenido del form
+  Array.from(forms).forEach((form) => {
+    form.addEventListener(
+      "submit",
+      (event) => {
+        //Si el formulario no esta validado se detiene el envío de la información
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        } else {
+          sessionStorage.setItem("formSubmitted", "true");
+        }
+
+        form.classList.add("was-validated");
+      },
+      false
+    );
   });
 
   // Verifica si el formulario fue enviado previamente
-  const formSubmitted = sessionStorage.getItem('formSubmitted');
+  const formSubmitted = sessionStorage.getItem("formSubmitted");
   if (formSubmitted) {
     // Si el formulario fue enviado, muestra la alerta
-    let alertaSuccess = document.createElement('div');
-    alertaSuccess.classList.add('alert', 'alert-success', 'mt-3');
-    alertaSuccess.textContent = '¡Has comprado con éxito!';
+    let alertaSuccess = document.createElement("div");
+    alertaSuccess.classList.add("alert", "alert-success", "mt-3");
+    alertaSuccess.textContent = "¡Has comprado con éxito!";
     document.body.appendChild(alertaSuccess);
 
     // Cierra la alerta después de 3 segundos
-    setTimeout(function() {
+    setTimeout(function () {
       alertaSuccess.remove();
     }, 3000);
 
     // Limpia el indicador de formulario enviado
-    sessionStorage.removeItem('formSubmitted');
+    sessionStorage.removeItem("formSubmitted");
   }
 });
