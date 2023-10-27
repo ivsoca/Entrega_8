@@ -136,6 +136,8 @@ async function showCart() {
     const tableDataBasura = document.createElement("td");
     const boteBasuraIcon = document.createElement("i");
     boteBasuraIcon.classList.add("fa-trash");
+    boteBasuraIcon.classList.add("icono-basura-rojo");
+
     boteBasuraIcon.classList.add("fa");
     boteBasuraIcon.id = `${producto.id}-boteBasuraIcon`;
 
@@ -170,7 +172,6 @@ async function showCart() {
 
         tableRow.remove();
       } else {
-        // Handle the case where producto.id is not found in productosCarrito
         console.log(`${producto.id} not found in productosCarrito`);
       }
     });

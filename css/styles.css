@@ -526,3 +526,18 @@ main {
 .productos-relacionados{
   padding-bottom: 20px;
 }
+
+.fa-trash{
+  position: relative;
+  top: 10px;
+  border:2px solid rgb(255, 89, 89);
+  color:rgb(255, 89, 89);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.fa-trash:hover{
+  color:red;
+  border:2px solid red;
+
+}

@@ -208,9 +208,9 @@ justify-content: center;
 }
 .desgloce-compra{
     list-style: none;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; */
     padding-top: 10px;
     padding: 1em;
     background-color: #bbd0ff;
