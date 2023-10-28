@@ -1,4 +1,6 @@
-
+* {
+    margin: auto;
+}
 .container {
     width: 100%;
     max-width: 2000px;
@@ -130,7 +132,7 @@
  #backtomenu {
     height: 600px;
   }
-  #lista-producto{ 
+#lista-producto{ 
     width: 200px;
     height: 400px;
     overflow: auto;
@@ -206,9 +208,9 @@ justify-content: center;
 }
 .desgloce-compra{
     list-style: none;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; */
     padding-top: 10px;
     padding: 1em;
     background-color: #bbd0ff;
