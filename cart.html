@@ -15,10 +15,14 @@
     <link href="css/categories.css" rel="stylesheet" />
     <link href="css/loginPopupMenu.css" rel="stylesheet" />
     <link href="css/cart.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </head>
 
   <body id="modo-claro">
@@ -135,110 +139,147 @@
                   </li>
                 </ul>
 
-                <a href="#modalMetodoPago" data-toggle="modal" class="btn btn-primary">Seleccionar Método de Pago</a>
+                <a href="#modalMetodoPago" data-toggle="modal"
+                  class="btn btn-primary">Seleccionar Método de Pago</a>
 
-                <div class="modal fade" id="modalMetodoPago" tabindex="-1" role="dialog" aria-labelledby="modalMetodoPagoLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
+                <div class="modal fade" id="modalMetodoPago" tabindex="-1"
+                  role="dialog" aria-labelledby="modalMetodoPagoLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="modalMetodoPagoLabel">Seleccionar
+                          Método de Pago</h5>
+                        <br>
+                        <button type="button" class="close" data-dismiss="modal"
+                          aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form>
+                          <div>
+                            <label>
+                              <input type="radio" name="metodoPago"
+                                value="tarjeta"> Tarjeta de Crédito
+                            </label>
+                            <input type="text" name="tarjetaCuenta"
+                              placeholder="Número de cuenta de tarjeta"
+                              class="form-control">
+                          </div>
+                          <br>
+                          <div>
+                            <label>
+                              <input type="radio" name="metodoPago"
+                                value="paypal"> PayPal
+                            </label>
+                            <input type="text" name="paypalCuenta"
+                              placeholder="Correo electrónico de PayPal"
+                              class="form-control">
+                          </div>
+                          <br>
+                          <div>
+                            <label>
+                              <input type="radio" name="metodoPago"
+                                value="transferencia"> Transferencia Bancaria
+                            </label>
+                            <input type="text" name="transferenciaCuenta"
+                              placeholder="Número de cuenta bancaria"
+                              class="form-control">
+                          </div>
+                          <br>
+                          <div>
+                            <h5>Red de Cobranza</h5>
+                            <div id="redCobranzaContainer">
+                              <label>
+                                <input type="radio" name="metodoPago"
+                                  value="abitab" id="abitab"> Abitab
+                              </label>
+                              <label>
+                                <input type="radio" name="metodoPago"
+                                  value="redpagos" id="redpagos"> Red Pagos
+                              </label>
+                            </div>
+                          </div>
+                        </form>
+
+                        <div class="mensaje" id="mensajeCobranza"
+                          style="display: none;">
+                          <p>Una vez finalizada tu compra, recibirás un código
+                            para realizar el pago en la red de cobranza que
+                            hayas seleccionado. </p>
+                          <p>Tendrás 24 horas para completar
+                            esta transacción. Una vez efectuado, tu compra será
+                            confirmada.</p>
+                          <p> Si no completas la transacción dentro de este
+                            plazo, la compra se cancelará automáticamente."</p>
+                        </div>
+                      </div>
+
+                      <button id="finalizarCompra" type="submit"
+                        class="btn btn-primary">
+                        Finalizar compra
+                      </button>
+                      <div class="modal fade" id="modalNumerosAleatorios"
+                        tabindex="-1" role="dialog"
+                        aria-labelledby="modalNumerosAleatoriosLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="modalMetodoPagoLabel">Seleccionar Método de Pago</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                              <h5 class="modal-title"
+                                id="modalNumerosAleatoriosLabel">Código de
+                                compra</h5>
+                              <button type="button" class="close"
+                                data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
                             </div>
                             <div class="modal-body">
-                                <form>
-                                    <div>
-                                        <label>
-                                            <input type="radio" name="metodoPago" value="tarjeta"> Tarjeta de Crédito
-                                        </label>
-                                        <input type="text" name="tarjetaCuenta" placeholder="Número de cuenta de tarjeta" class="form-control">
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <label>
-                                            <input type="radio" name="metodoPago" value="paypal"> PayPal
-                                        </label>
-                                        <input type="text" name="paypalCuenta" placeholder="Correo electrónico de PayPal" class="form-control">
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <label>
-                                            <input type="radio" name="metodoPago" value="transferencia"> Transferencia Bancaria
-                                        </label>
-                                        <input type="text" name="transferenciaCuenta" placeholder="Número de cuenta bancaria" class="form-control">
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <h5>
-                                            Red de Cobranza
-                                        </h5>
-                                        <div>
-                                            <label>
-                                                <input type="radio" name="redcobranza" value="abitab"> Abitab
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <label>
-                                                <input type="radio" name="redcobranza" value="redpagos"> Red Pagos
-                                            </label>
-                                        </div>
-                                    </div>
-                                </form>
-                                
+                              <!--codigo compra-->
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary">Guardar Método de Pago</button>
-                            </div>
+                          </div>
                         </div>
-                    </div>
+                      </div>
+                      <div id="alertPlaceHolder">
+                        <!-- Contenido de alertas o mensajes -->
+                      </div>
+                    </form>
+                  </div>
+                </main>
+                <footer class="text-muted">
+                  <div class="container">
+                    <p class="float-end">
+                      <a href="#">Volver arriba</a>
+                    </p>
+                    <p>Este sitio forma parte de <a
+                        href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes
+                        a
+                        Programar</a></p>
+                  </div>
+                </footer>
+                <div id="spinner-wrapper">
+                  <div class="lds-ring">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
                 </div>
-
-
-                <button id="finalizarCompra" type="submit"
-                  class="btn btn-primary">
-                  Finalizar compra
-                </button>
-                <div id="alertPlaceHolder">
-                  <!-- Contenido de alertas o mensajes -->
+              </div>
+              <div id="loginPopup" class="popup">
+                <div class="popup-content">
+                  <p>Debes estar logueado para acceder a este contenido.</p>
+                  <button id="loginButton">Iniciar Sesión</button>
                 </div>
-              </form>
-            </div>
-          </main>
-          <footer class="text-muted">
-            <div class="container">
-              <p class="float-end">
-                <a href="#">Volver arriba</a>
-              </p>
-              <p>Este sitio forma parte de <a
-                  href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes
-                  a
-                  Programar</a></p>
-            </div>
-          </footer>
-          <div id="spinner-wrapper">
-            <div class="lds-ring">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-          </div>
-        </div>
-        <div id="loginPopup" class="popup">
-          <div class="popup-content">
-            <p>Debes estar logueado para acceder a este contenido.</p>
-            <button id="loginButton">Iniciar Sesión</button>
-          </div>
-        </div>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/index.js"></script>
-        <script src="js/init.js"></script>
-        <script src="js/loginPopUp.js"></script>
-        <script src="js/loginPopupMenu.js"></script>
-        <script src="js/cart.js"></script>
-        <script src="https://kit.fontawesome.com/fdc46ffa07.js"
-          crossorigin="anonymous"></script>
-      </body>
-    </html>
+              </div>
+              <script src="js/bootstrap.bundle.min.js"></script>
+              <script src="js/index.js"></script>
+              <script src="js/init.js"></script>
+              <script src="js/loginPopUp.js"></script>
+              <script src="js/loginPopupMenu.js"></script>
+              <script src="js/cart.js"></script>
+              <script src="https://kit.fontawesome.com/fdc46ffa07.js"
+                crossorigin="anonymous"></script>
+            </body>
+          </html>
