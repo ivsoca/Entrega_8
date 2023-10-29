@@ -471,5 +471,4 @@ inputMetodoPago.forEach(input => {
     sessionStorage.removeItem("formSubmitted");
   }
 
-
 });
