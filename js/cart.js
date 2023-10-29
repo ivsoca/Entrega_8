@@ -470,5 +470,21 @@ inputMetodoPago.forEach(input => {
     // Limpiar el valor en sessionStorage para futuros envíos del formulario
     sessionStorage.removeItem("formSubmitted");
   }
+});
 
+//Mensaje red de cobranza
+
+document.addEventListener("DOMContentLoaded", function () {
+  const mensajeCobranza = document.getElementById("mensajeCobranza");
+  const radioButtons = document.querySelectorAll('input[name="metodoPago"]');
+
+  radioButtons.forEach(function (radio) {
+    radio.addEventListener("change", function () {
+      if (radio.value === "abitab" || radio.value === "redpagos") {
+        mensajeCobranza.style.display = "block";
+      } else {
+        mensajeCobranza.style.display = "none";
+      }
+    });
+  });
 });
