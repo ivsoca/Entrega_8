@@ -194,6 +194,7 @@ async function showCart() {
         );
 
         tableRow.remove();
+        actualizarTotal();
       } else {
         console.log(`${producto.id} not found in productosCarrito`);
       }
