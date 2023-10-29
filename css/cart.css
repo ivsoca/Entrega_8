@@ -9,6 +9,7 @@
 /* Boton carrito */
 .container .btn-menu, .logo {
     margin-top: 10px;
+    align-items: right;
 }
 
 .container .btn-menu label i {
