@@ -1,0 +1,17 @@
+
+.titulo-perfil{
+    display: flex;
+    justify-content: center;
+    margin-top: 8% !important;
+    margin-right: 10% !important;
+    width: 20%;
+}
+  .img-perfil{
+    display: flex;
+    justify-content: center;
+    padding-right: 20%;
+    padding-bottom: 2%;
+  }
+  .form-control {
+    width: 80%;
+  }
