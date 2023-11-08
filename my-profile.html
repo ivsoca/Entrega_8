@@ -16,6 +16,9 @@
     <link href="css/loginPopupMenu.css" rel="stylesheet" />
     <link href="css/cart.css" rel="stylesheet" />
     <link href="css/my-profile.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
   </head>
 
   <body id="modo-claro">
@@ -51,7 +54,7 @@
 
       <main class="pb-5 product-container">
         <div class="productos-titulo-cart">
-          <div class="container">
+          <div class="perfil-container">
             <form id="profileForm" class="needs-validation" novalidate>
 
               <div class="row">
@@ -104,9 +107,9 @@
                     required />
                 </div>
 
-                <div class="col-lg-6 col-md-12 col-sm-12 mt-2">
+                <div class="col-lg-6 col-md-12 col-sm-12 mt-2 container">
                   <label class="form-label" for="telephone">Telefono de contacto</label><br>
-                  <input class="form-control" type="text" id="telephone"
+                  <input class="form-control" type="tel" id="phone" name="phone"
                     style="min-width: 80%" pattern="[0-9]{8,9}"
                     required />
                 </div>
@@ -148,5 +151,14 @@
     <script src="js/cart.js"></script>
     <script src="https://kit.fontawesome.com/fdc46ffa07.js"
       crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
   </body>
+  <script>
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+      utilsScript:
+        "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+  </script>
 </html>
