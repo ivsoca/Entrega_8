@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const formData = JSON.parse(
     localStorage.getItem(`perfilData`)
   );
+  let imgMyProfile = document.getElementById("lmenu-cambiar-icono-container");
+  imgMyProfile.src = localStorage.getItem('icon');
 
   botonCambiarFoto.addEventListener("click", (event)=>{
     event.preventDefault();
