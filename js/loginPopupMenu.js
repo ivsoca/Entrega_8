@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Cargar foto usuario
   let fotoUsuario =
-    localStorage.getItem(`${userEmail}-icon`) ||
+    localStorage.getItem(`icon`) ||
     "../img/iconos_perfil/desconocido.png";
 
   // Crear elemento nav
@@ -125,6 +125,17 @@ document.addEventListener("DOMContentLoaded", () => {
   function handleCustomIconUpload(event) {
     const customIconFile = event.target.files[0];
     if (customIconFile) {
+      let reader = new FileReader();
+
+      reader.readAsDataURL(customIconFile);
+
+      reader.onload = ()=>{
+        let base64Custom = reader.result;
+
+        localStorage.setItem('icon', base64Custom);
+        window.location.reload()
+      }
+
     }
   }
   // Cambiar foto perfil
@@ -133,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   contenedorImagenes.addEventListener("click", (event) => {
     fotoUsuario = event.target.src;
-    localStorage.setItem(`${userEmail}-icon`, event.target.src);
+    localStorage.setItem(`icon`, event.target.src);
     console.log(fotoUsuario);
     location.reload();
     console.log("TUKI");
