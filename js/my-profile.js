@@ -1,16 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
+  let imgMyProfile = document.getElementById("lmenu-cambiar-icono-container");
+  console.log("profile Icon", imgMyProfile.src);
   const formsPerfil = document.querySelectorAll(".needs-validation");
   let botonCambiarFoto = document.getElementById("login-cambiar-icono-btn");
   const loggedEmail = localStorage.getItem("email");
   const formData = JSON.parse(
-    localStorage.getItem(`perfilData`)
+    localStorage.getItem(`${loggedEmail}-perfilData`)
   );
-  let imgMyProfile = document.getElementById("lmenu-cambiar-icono-container");
-  imgMyProfile.src = localStorage.getItem('icon');
-
-  botonCambiarFoto.addEventListener("click", (event)=>{
+  imgMyProfile.src = localStorage.getItem(`${loggedEmail}-icon`);
+  botonCambiarFoto.addEventListener("click", (event) => {
     event.preventDefault();
-  })
+  });
 
   Array.from(formsPerfil).forEach((form) => {
     form.addEventListener(
@@ -30,13 +30,12 @@ document.addEventListener("DOMContentLoaded", () => {
             email: document.getElementById("email").value,
             phone: document.getElementById("phone").value,
           };
-          const loggedEmail = localStorage.getItem("email");
           // Guarda los datos del formulario como un objeto JSON en el localStorage
           localStorage.setItem(
-            `perfilData`,
+            `${loggedEmail}-perfilData`,
             JSON.stringify(formData)
           );
-          localStorage.setItem("email", document.getElementById("email").value)
+          localStorage.setItem("email", document.getElementById("email").value);
         }
 
         form.classList.add("was-validated");
@@ -44,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       false
     );
   });
-  
+
   if (formData) {
     document.getElementById("nombre1").value = formData.nombre || "";
     document.getElementById("nombre2").value = formData.nombre2 || "";
@@ -55,5 +54,5 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     document.getElementById("email").value = loggedEmail;
   }
+  console.log("ta o no ta?");
 });
-console.log("ta o no ta?");
