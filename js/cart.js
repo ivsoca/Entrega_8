@@ -89,8 +89,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
-const cart_URL_base = "https://japceibal.github.io/emercado-api/user_cart/";
-const cart_pre_hecho = cart_URL_base + "25801" + EXT_TYPE;
+const cart_URL_base = "http://localhost:3000/user_cart/";
+const cart_pre_hecho = cart_URL_base + "25801";
 // const imagen_producto = document.getElementById("imagen-cart");
 // const nombre_producto = document.getElementById("name-cart");
 // const precio_producto = document.getElementById("cost-cart");
@@ -111,7 +111,7 @@ async function showCart() {
     "lista-productos-compra"
   );
   productosCarrito.forEach(async (elementid) => {
-    let productoURL = `https://japceibal.github.io/emercado-api/products/${elementid}.json`;
+    let productoURL = `http://localhost:3000/products/${elementid}`;
     let productoFetch = await getJSONData(productoURL);
     let producto = productoFetch.data;
 
@@ -257,7 +257,7 @@ async function fillSidebarCart(idListElement) {
   sidebarUl.innerHTML = "";
   let subTotalSidebarAmount = 0;
   productosCarrito.forEach(async (elementid) => {
-    let productoURL = `https://japceibal.github.io/emercado-api/products/${elementid}.json`;
+    let productoURL = `http://localhost:3000/products/${elementid}`;
     let productoFetch = await getJSONData(productoURL);
     let producto = productoFetch.data;
     const liElement = document.createElement("li");

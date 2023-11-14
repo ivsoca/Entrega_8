@@ -19,6 +19,36 @@ app.get('/categories', (req, res)=>{
     
 })
 
+app.get('/cats/:id', (req, res)=>{
+    fs.readFile(`./emercado-api-main/cats_products/${req.params.id}.json`, "utf8", (err, jsonString) => {
+        if (err) {
+            console.log("File read failed:", err);
+            return;
+        }
+        res.send(JSON.parse(jsonString))
+        });
+})
+
+app.get('/products/:id', (req, res)=>{
+    fs.readFile(`./emercado-api-main/products/${req.params.id}.json`, "utf8", (err, jsonString) => {
+        if (err) {
+            console.log("File read failed:", err);
+            return;
+        }
+        res.send(JSON.parse(jsonString))
+        });
+})
+
+app.get('/user_cart/:id', (req, res)=>{
+    fs.readFile(`./emercado-api-main/user_cart/${req.params.id}.json`, "utf8", (err, jsonString) => {
+        if (err) {
+            console.log("File read failed:", err);
+            return;
+        }
+        res.send(JSON.parse(jsonString))
+        });
+    
+})
 
 
 

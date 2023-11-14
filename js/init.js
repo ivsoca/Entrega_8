@@ -40,7 +40,6 @@ const getJSONData = async (url) => {
 const CATEGORIES_URL = `${BASE_URL}/categories`;
 getJSONData(CATEGORIES_URL)
   .then((categoriesData) => {
-    console.log(CATEGORIES_URL)
     console.log(categoriesData);
   })
   .catch((error) => {
