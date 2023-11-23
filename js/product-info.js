@@ -159,11 +159,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   //Se crean const que traen info del localStorage(producto que se clickeo y su nombre de categoria)
   const product = JSON.parse(localStorage.getItem("productoClickeado"));
   const productCategoryName = localStorage.getItem("catName");
-  let catURL = `https://japceibal.github.io/emercado-api/cats_products/${localStorage.getItem(
-    "catID"
-  )}.json`; //json con productos de la misma categoria
+  let catURL = `http://localhost:3000/cats/${localStorage.getItem("catID")}`; //json con productos de la misma categoria
   let catData = await getJSONData(catURL);
-  let productURL = `https://japceibal.github.io/emercado-api/products/${product.id}.json`;
+  let productURL = `http://localhost:3000/products/${product.id}`;
   let productfetch = await getJSONData(productURL);
   let relatedProductsDiv = document.getElementById("productosSimilares");
   let agregarButton = document.getElementById("agregarAlCarritoButton");
@@ -233,7 +231,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       productoRelacionado.addEventListener("click", async () => {
         productObject = await getJSONData(
-          `https://japceibal.github.io/emercado-api/products/${element.id}.json`
+          `http://localhost:3000/products/${element.id}`
         );
         console.log(productObject);
         localStorage.setItem(
