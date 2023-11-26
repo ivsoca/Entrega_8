@@ -26,11 +26,11 @@ app.get("/login", (req, res) => {
   res.sendFile(__dirname + "/login.html");
 });
 
-// const getLoggedUser = (req) => {
-//   const token = req.headers["access-token"];
-//   const decoded = jwt.verify(token, SECRET_KEY);
-//   //Query a base de datos que me trae el user y la id esta guardada en el decoded
-// };
+ const getLoggedUser = (req) => {
+  const token = req.headers["access-token"];
+  const decoded = jwt.verify(token, SECRET_KEY);
+  //Query a base de datos que me trae el user y la id esta guardada en el decoded
+};
 
 const authMiddleware = (req, res, next) => {
   const tokenWitCookie = req.headers['cookie'];
@@ -70,6 +70,14 @@ app.post("/login", (req, res) => {
   }
 });
 
+
+
+app.use("/cart", authMiddleware);
+
+app.use("/cartdb", authMiddleware);
+
+app.use('/cartdb', cartdbRouter)
+
 app.get("/categories", (req, res) => {
   fs.readFile(
     "./emercado-api-main/cats/cat.json",
@@ -83,13 +91,6 @@ app.get("/categories", (req, res) => {
     }
   );
 });
-
-app.use("/cart", authMiddleware);
-
-app.use("/cartdb", authMiddleware);
-
-app.use('/cartdb', cartdbRouter)
-
 
 app.get("/cart", (req, res) => {
   res.sendFile(__dirname + '/cart.html');

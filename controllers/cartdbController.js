@@ -23,9 +23,7 @@ const postCartItem = async (req, res)=>{
 
 const getCartItems = async (req, res)=>{
     const token = req.headers['cookie'].replace('access-token=', '');
-
     const modelResponse = await cartdbModel.getCartItems(parseToken(token));
-
     if(modelResponse != false){
         res.status(200).send(modelResponse)
     }else if(modelResponse.length == 0){
@@ -37,9 +35,7 @@ const getCartItems = async (req, res)=>{
 
 const deleteCartItem = async (req, res)=>{
     const token = req.headers['cookie'].replace('access-token=', '');
-
     const modelResponse = await cartdbModel.deleteCartItem(req.body.id, parseToken(token));
-
     if (modelResponse == false){
         res.status(300).send('algo salió mal');
     }else{

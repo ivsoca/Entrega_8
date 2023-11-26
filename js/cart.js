@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     "agregarAlCarritoButton"
   );
   if (agregarAlCarritoButton) {
-    agregarAlCarritoButton.addEventListener("click", fillSidebarCart());
+    agregarAlCarritoButton.addEventListener("click", fillSidebarCart);
   }
   getJSONData(cart_pre_hecho).then(function (resultObj) {
     if (resultObj.status === "ok") {
@@ -487,3 +487,4 @@ document
     // Set the appropriate card image
     cardImageContainer.innerHTML = `<img src="${cardType}.png" alt="${cardType}">`;
   });
+
