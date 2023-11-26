@@ -5,6 +5,8 @@ const fs = require("fs");
 const port = 3000;
 const cors = require("cors");
 const path = require("path");
+const { cartdbRouter } = require('./routers/cartdbRouter')
+
 
 const SECRET_KEY = "CLAVE_ULTRA_SECRETA";
 
@@ -31,13 +33,8 @@ app.get("/login", (req, res) => {
 // };
 
 const authMiddleware = (req, res, next) => {
-  const token = req.headers["access-token"];
-  console.log({
-    req,
-    token,
-    headers: req.headers,
-    specify: req.headers["access-token"],
-  });
+  const tokenWitCookie = req.headers['cookie'];
+  const token = tokenWitCookie.replace('access-token=', '');
   if (!token) {
     return res.status(401).json({
       message: "Token no proporcionado",
@@ -66,7 +63,7 @@ app.post("/login", (req, res) => {
   if (nameLogin && passwordLogin) {
     const token = jwt.sign({ nameLogin }, SECRET_KEY, { expiresIn: "1h" });
     console.log("Token generado:", token);
-    res.cookie("accessToken", token, { httpOnly: true, secure: true });
+    res.cookie("access-token", token, { httpOnly: true, secure: true });
     res.json({ token });
   } else {
     res.status(401).json({ error: "Credenciales incorrectas" });
@@ -89,8 +86,13 @@ app.get("/categories", (req, res) => {
 
 app.use("/cart", authMiddleware);
 
+app.use("/cartdb", authMiddleware);
+
+app.use('/cartdb', cartdbRouter)
+
+
 app.get("/cart", (req, res) => {
-  res.send("sanguango");
+  res.sendFile(__dirname + '/cart.html');
 });
 
 app.get("/cats/:id", (req, res) => {

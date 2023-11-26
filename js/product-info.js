@@ -245,14 +245,26 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   //acá agrega el producto comprado al localstorage
   agregarButton.addEventListener("click", async () => {
-    let productosCarrito =
+    let url = 'http://localhost:3000/cartdb'
+
+
+    fetch(url, {
+      method: 'POST',
+      mode: 'cors',
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({id: product.id})
+    })
+    
+    /*let productosCarrito =
       JSON.parse(localStorage.getItem("productosCarrito")) || [];
-    const productId = product.id;
+    const productId = product.id;*/
     //productosCarrito = [...productosCarrito, productId];
     //console.log(productosCarrito, product);
     if (!productosCarrito.includes(productId)){
       productosCarrito.push(productId)
     }
-    localStorage.setItem("productosCarrito", JSON.stringify(productosCarrito));
+    //localStorage.setItem("productosCarrito", JSON.stringify(productosCarrito));
   });
 });

@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     <div class="container">
         <div class="btn-menu">
             <label for="btn-menu" class="nav-item">
-                <a href="cart.html">
+                <a href="cart">
                     <i class="fa-solid fa-cart-shopping" style="color: #ffd6ff;"></i>
                 </a>
             </label>
@@ -20,41 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const navbar = document.getElementById("navlist");
   navbar.appendChild(cartNavElement);
 
-  /*
-  const cartNavElement = document.createElement("li");
-  cartNavElement.innerHTML = `
-    <div class="container">
-        <div class="btn-menu">
-            <label for="btn-menu" class=""nav-item"><i class="fa-solid fa-cart-shopping" style="color: #ffd6ff;"></i></label>    
-        </div>   
-        <input type="checkbox" id="btn-menu">
-        <div class="container-menu">
-        <div class="cont-menu">
-                <h5 class="letras-carrito">Mi compra</h5>
-                    <nav id="backtomenu" class="menu">
-                        <ul id="shopContent" class="shoppContent" >
-                            <li><a href="cart.html">Ir al carrito</a></li>
-                            <ul id="lista-producto"> </ul>
-                            <li id="subtotal-sidebar"class="calculos-carrito">Subtotal: </li>
-                            <li id="descuentos-sidebar" class="calculos-carrito">Descuentos</li>
-                            <li id="total-sidebar" class="calculos-carrito">Total</li>
-                        </ul>
-                    </nav>
-                <button id="ir-a-checkout" class="boton-producto box-botonpr">
-                <div id="contenido-btn-comprar">Comprar</div>
-                </button>
-            <label for="btn-menu" class="icon-equis"><i class="fa-solid fa-x"></i></label>
-        </div>    
-        </div>
-    </div>
-`;
-  cartNavElement.classList.add("nav-item");
-  cartNavElement.id = "cart-nav-li";
-  //* Agregar elemento nav a navbar
-  const navbar = document.getElementById("navlist");
-  navbar.appendChild(cartNavElement);
-*/
-
+ 
   const agregarAlCarritoButton = document.getElementById(
     "agregarAlCarritoButton"
   );
@@ -105,11 +71,11 @@ const cart_pre_hecho = cart_URL_base + "25801";
 // });
 
 async function showCart() {
-  const productosCarrito =
-    JSON.parse(localStorage.getItem("productosCarrito")) || [];
   const listaProductosCompra = document.getElementById(
     "lista-productos-compra"
   );
+  const productosCarritoRaw = await getJSONData('http://localhost:3000/cartdb')
+  let productosCarrito = productosCarritoRaw.data.map(obj => obj.product)
   productosCarrito.forEach(async (elementid) => {
     let productoURL = `http://localhost:3000/products/${elementid}`;
     let productoFetch = await getJSONData(productoURL);
@@ -179,24 +145,22 @@ async function showCart() {
     let boteBasura = document.getElementById(`${producto.id}-boteBasuraIcon`);
 
     boteBasura.addEventListener("click", async () => {
-      let productosCarrito = await JSON.parse(
-        localStorage.getItem("productosCarrito")
-      );
+      
+      let data = {id: producto.id}
 
-      let index = productosCarrito.indexOf(producto.id);
-      if (index !== -1) {
-        productosCarrito.splice(index, 1);
+        fetch('http://localhost:3000/cartdb',{
+          method: 'DELETE',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
 
-        localStorage.setItem(
-          "productosCarrito",
-          JSON.stringify(productosCarrito)
-        );
 
         tableRow.remove();
         actualizarTotal();
-      } else {
-        console.log(`${producto.id} not found in productosCarrito`);
-      }
+
     });
   });
 
